@@ -10,5 +10,5 @@ namespace ElegantSlider;
 use WordWrap\LifeCycle;
 
 class Plugin extends LifeCycle{
-    
+
 }

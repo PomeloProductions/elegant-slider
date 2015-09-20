@@ -1,6 +1,6 @@
 <?php
 /*
-   Plugin Name: Rules and Regulations
+   Plugin Name: Elegant Slider
    Plugin URI: http://wordpress.org/extend/plugins/wordwrap-elegant-slider/
    Version: 0.1.0
    Author: Axolotl Interactive
