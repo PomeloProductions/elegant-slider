@@ -26,7 +26,7 @@ class Slider extends BaseModel{
     /**
      * @var Image[] the images that belong to this slider
      */
-    public $images;
+    private $images = null;
     /**
      * @var DateTime the date that this slider was deleted
      */
@@ -42,6 +42,15 @@ class Slider extends BaseModel{
         return "wp_elegant_slider_slider";
     }
 
+    /**
+     * @return Image[]
+     */
+    public function getImages(){
+        if(!$this->images)
+            $this->images = Image::fetchImagesForSlider($this);
+
+        return $this->images;
+    }
     /**
      * Get an array of fields to search during a search query.
      *

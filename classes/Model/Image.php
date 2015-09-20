@@ -45,6 +45,29 @@ class Image extends BaseModel{
      * @var DateTime the date that the image was deleted
      */
     public $deleted_at;
+
+    /**
+     * @param $slider
+     * @return Image[]
+     */
+    public static function fetchImagesForSlider($slider){
+
+        $SQL = "SELECT * FROM `" . static::get_table() . "` WHERE `deleted_at` IS NULL AND `slider_id` = " . $slider->id;
+        global $wpdb;
+
+        $results = $wpdb->get_results($SQL, ARRAY_A);
+
+        $images = [];
+
+        foreach ($results as $row) {
+            $image = new Image($row);
+            $image->slider = $slider;
+            $images[] = $image;
+        }
+
+        return $images;
+    }
+
     /**
      * Overwrite this in your concrete class. Returns the table name used to
      * store models of this class.

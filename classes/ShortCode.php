@@ -9,6 +9,7 @@
 namespace ElegantSlider;
 
 
+use ElegantSlider\Model\Slider;
 use WordWrap\ShortCodeScriptLoader;
 
 class ShortCode extends ShortCodeScriptLoader{
@@ -19,6 +20,8 @@ class ShortCode extends ShortCodeScriptLoader{
      */
     public function handleShortcode($atts) {
         $exportedHTML = 'hello word';
+        $slider = Slider::find_one($atts['id']);
+        $images = $slider->getImages();
         return $exportedHTML;
     }
 
