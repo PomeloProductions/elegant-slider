@@ -10,6 +10,8 @@ namespace ElegantSlider;
 
 
 use ElegantSlider\Model\Slider;
+use WordWrap\Assets\View\View;
+use WordWrap\Assets\View\ViewCollection;
 use WordWrap\ShortCodeScriptLoader;
 
 class ShortCode extends ShortCodeScriptLoader{
@@ -22,7 +24,9 @@ class ShortCode extends ShortCodeScriptLoader{
         $exportedHTML = 'hello word';
         $slider = Slider::find_one($atts['id']);
         $images = $slider->getImages();
-        return $exportedHTML;
+
+        $imageCollection = $this->buildCollection($images);
+        return $imageCollection->export();
     }
 
     /**
@@ -33,5 +37,18 @@ class ShortCode extends ShortCodeScriptLoader{
      */
     public function addScript() {
         // TODO: Implement addScript() method.
+    }
+
+    private function buildCollection($images) {
+        $imageCollection = new ViewCollection($this->lifeCycle, "slider");
+
+        foreach ($images as $image){
+            $imageView = new View($this->lifeCycle, "image");
+
+            $imageView->setTemplateVar("image_url", $image->image_url);
+
+            $imageCollection->addChildView("image", $imageView);
+        }
+        return $imageCollection;
     }
 }
