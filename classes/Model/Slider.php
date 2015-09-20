@@ -24,6 +24,10 @@ class Slider extends BaseModel{
      */
     public $description;
     /**
+     * @var Image[] the images that belong to this slider
+     */
+    public $images;
+    /**
      * @var DateTime the date that this slider was deleted
      */
     public $deleted_at;

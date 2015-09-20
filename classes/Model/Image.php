@@ -34,6 +34,14 @@ class Image extends BaseModel{
      */
     public $image_url;
     /**
+     * @var int the id of this image's slider
+     */
+    public $slider_id;
+    /**
+     * @var Slider the slider that this image belongs to
+     */
+    public $slider;
+    /**
      * @var DateTime the date that the image was deleted
      */
     public $deleted_at;
@@ -64,6 +72,7 @@ class Image extends BaseModel{
      */
     public static function get_fields() {
         return [
+            "slider_id" => "INTEGER(11) UNSIGNED",
             "name" => "TEXT",
             "description" => "TEXT",
             "order" => "INTEGER(11)",
