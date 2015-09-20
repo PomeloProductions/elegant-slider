@@ -66,7 +66,7 @@ class Image extends BaseModel{
         return [
             "name" => "TEXT",
             "description" => "TEXT",
-            "order" => "INT",
+            "order" => "INTEGER(11)",
             "image_url" => "TEXT",
             "deleted_at" => "DATETIME"
         ];
