@@ -1,0 +1,22 @@
+{
+  "pluginName" : "wordwrap-elegant-slider",
+  "rootNameSpace" : "ElegantSlider",
+  "LifeCycle" : {
+    "className" : "Plugin",
+    "AssetLocation" : [
+      {
+        "type" : "css",
+        "location" : "assets/css"
+      },
+      {
+        "type" : "html",
+        "location" : "assets/html"
+      },
+      {
+        "type" : "js",
+        "location" : "assets/js"
+      }
+    ],
+    "optionsPrefix" : "elegant_slider"
+  }
+}
