@@ -10,6 +10,8 @@ namespace ElegantSlider;
 
 
 use ElegantSlider\Model\Slider;
+use WordWrap\Assets\Script\JavaScript;
+use WordWrap\Assets\StyleSheet\CSS;
 use WordWrap\Assets\View\View;
 use WordWrap\Assets\View\ViewCollection;
 use WordWrap\ShortCodeScriptLoader;
@@ -21,12 +23,26 @@ class ShortCode extends ShortCodeScriptLoader{
      * @return string shortcode content
      */
     public function handleShortcode($atts) {
-        $exportedHTML = 'hello word';
+        $exportedContent = '';
+
+        $css = new CSS($this->lifeCycle, "jquery.bxslider");
+        $exportedContent.= $css->export();
+
         $slider = Slider::find_one($atts['id']);
         $images = $slider->getImages();
 
         $imageCollection = $this->buildCollection($images);
-        return $imageCollection->export();
+        $exportedContent.= $imageCollection->export();
+
+        $js = new JavaScript($this->lifeCycle, "jquery.bxslider");
+        $exportedContent.= $js->export();
+        $js = new JavaScript($this->lifeCycle, "plugin");
+
+        $js->setTemplateVar('auto_play', $slider->auto_play ? 'true' : 'false');
+        $js->setTemplateVar('auto_play_speed', $slider->auto_play_speed);
+        $exportedContent.= $js->export();
+
+        return $exportedContent;
     }
 
     /**
