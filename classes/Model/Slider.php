@@ -24,6 +24,14 @@ class Slider extends BaseModel{
      */
     public $description;
     /**
+     * @var bool whether or not to use autoplay
+     */
+    public $auto_play = false;
+    /**
+     * @var int speed of the auto play
+     */
+    public $auto_play_speed = 4000;
+    /**
      * @var Image[] the images that belong to this slider
      */
     private $images = null;
@@ -70,7 +78,9 @@ class Slider extends BaseModel{
         return [
             "name" => "TEXT",
             "description" => "TEXT",
-            "deleted_at" => "DATETIME"
+            "deleted_at" => "DATETIME",
+            "auto_play" => "TINYINT(4) DEFAULT '0'",
+            "auto_play_speed" => "INTEGER(11) DEFAULT '4000'"
         ];
     }
 }
