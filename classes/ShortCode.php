@@ -29,18 +29,21 @@ class ShortCode extends ShortCodeScriptLoader{
         $exportedContent.= $css->export();
 
         $slider = Slider::find_one($atts['id']);
-        $images = $slider->getImages();
 
-        $imageCollection = $this->buildCollection($images);
-        $exportedContent.= $imageCollection->export();
+        if ($slider) {
+            $images = $slider->getImages();
 
-        $js = new JavaScript($this->lifeCycle, "jquery.bxslider");
-        $exportedContent.= $js->export();
-        $js = new JavaScript($this->lifeCycle, "plugin");
+            $imageCollection = $this->buildCollection($images);
+            $exportedContent .= $imageCollection->export();
 
-        $js->setTemplateVar('auto_play', $slider->auto_play ? 'true' : 'false');
-        $js->setTemplateVar('auto_play_speed', $slider->auto_play_speed);
-        $exportedContent.= $js->export();
+            $js = new JavaScript($this->lifeCycle, "jquery.bxslider");
+            $exportedContent .= $js->export();
+            $js = new JavaScript($this->lifeCycle, "plugin");
+
+            $js->setTemplateVar('auto_play', $slider->auto_play ? 'true' : 'false');
+            $js->setTemplateVar('auto_play_speed', $slider->auto_play_speed);
+            $exportedContent .= $js->export();
+        }
 
         return $exportedContent;
     }
