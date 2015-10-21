@@ -81,7 +81,6 @@ ul.bxslider {
 .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
   display: inline-block;
   zoom: 1;
-  display: inline;
 }
 .bx-wrapper .bx-pager-item {
   font-size: 0;
