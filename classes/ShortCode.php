@@ -30,6 +30,8 @@ class ShortCode extends ShortCodeScriptLoader{
         if ($slider) {
 
             $css = new CSS($this->lifeCycle, "jquery.bxslider");
+
+            $css->setTemplateVar("plugin_directory", plugin_dir_url(__DIR__ . "../"));
             $exportedContent.= $css->export();
             
             $images = $slider->getImages();
