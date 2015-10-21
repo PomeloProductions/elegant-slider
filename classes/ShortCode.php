@@ -25,12 +25,13 @@ class ShortCode extends ShortCodeScriptLoader{
     public function handleShortcode($atts) {
         $exportedContent = '';
 
-        $css = new CSS($this->lifeCycle, "jquery.bxslider");
-        $exportedContent.= $css->export();
-
         $slider = Slider::find_one($atts['id']);
 
         if ($slider) {
+
+            $css = new CSS($this->lifeCycle, "jquery.bxslider");
+            $exportedContent.= $css->export();
+            
             $images = $slider->getImages();
 
             $imageCollection = $this->buildCollection($images);
