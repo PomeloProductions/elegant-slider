@@ -101,7 +101,7 @@ ul.bxslider {
 }
 .bx-wrapper .bx-next:hover,
 .bx-wrapper .bx-next:focus {
-  background-position: 0 0;
+  background-position: -43px 0;
 }
 .bx-wrapper .bx-controls-direction a {
   position: absolute;
@@ -111,7 +111,6 @@ ul.bxslider {
   width: 32px;
   height: 32px;
   text-indent: -9999px;
-  z-index: 9999;
 }
 .bx-wrapper .bx-controls-direction a.disabled {
   display: none;
