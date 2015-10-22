@@ -6,6 +6,7 @@ jQuery(document).ready(function(){
         'auto' : {{auto_play}},
         'pause' : {{auto_play_speed}},
         'touchEnabled' : true,
-        'oneToOneTouch' : true
+        'oneToOneTouch' : true,
+        'pager' : false
     });
 });
