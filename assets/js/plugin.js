@@ -4,6 +4,8 @@
 jQuery(document).ready(function(){
     jQuery('.bxslider').bxSlider({
         'auto' : {{auto_play}},
-        'pause' : {{auto_play_speed}}
+        'pause' : {{auto_play_speed}},
+        'touchEnabled' : true,
+        'oneToOneTouch' : true
     });
 });
