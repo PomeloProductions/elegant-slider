@@ -47,6 +47,10 @@ class ShortCode extends ShortCodeScriptLoader{
             $js->setTemplateVar('fluid_touch', $slider->fluid_touch ? 'true' : 'false');
             $js->setTemplateVar('pager', $slider->pager ? 'true' : 'false');
             $js->setTemplateVar('auto_play_speed', $slider->auto_play_speed);
+
+            if($slider->lightbox)
+                $exportedContent.= $this->buildLightBox($slider);
+
             $exportedContent .= $js->export();
         }
 
@@ -74,5 +78,22 @@ class ShortCode extends ShortCodeScriptLoader{
             $imageCollection->addChildView("image", $imageView);
         }
         return $imageCollection;
+    }
+
+    /**
+     * @param Slider $slider the slider we are building a light box for
+     * @return string the content of the light box script
+     */
+    private function buildLightBox(Slider $slider) {
+
+        $css = new CSS($this->lifeCycle, "magnific-popup");
+
+        $content = $css->export();
+
+        $js = new JavaScript($this->lifeCycle, "jquery.magnific-popup.min");
+
+        $content.= $js->export();
+
+        return $content;
     }
 }
