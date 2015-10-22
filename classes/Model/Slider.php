@@ -32,6 +32,14 @@ class Slider extends BaseModel{
      */
     public $auto_play_speed = 4000;
     /**
+     * @var bool whether or not this slider has fluid touch between elements
+     */
+    public $fluid_touch = false;
+    /**
+     * @var bool whether or not to use the paging element in the slider
+     */
+    public $pager = false;
+    /**
      * @var Image[] the images that belong to this slider
      */
     private $images = null;
@@ -80,6 +88,8 @@ class Slider extends BaseModel{
             "description" => "TEXT",
             "deleted_at" => "DATETIME",
             "auto_play" => "TINYINT(4) DEFAULT '0'",
+            "fluid_touch" => "TINYINT(4) DEFAULT '0'",
+            "pager" => "TINYINT(4) DEFAULT '0'",
             "auto_play_speed" => "INTEGER(11) DEFAULT '4000'"
         ];
     }
