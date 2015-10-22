@@ -48,7 +48,7 @@ class ShortCode extends ShortCodeScriptLoader{
             $js->setTemplateVar('pager', $slider->pager ? 'true' : 'false');
             $js->setTemplateVar('auto_play_speed', $slider->auto_play_speed);
 
-            if($slider->lightbox)
+            if($slider->light_box)
                 $exportedContent.= $this->buildLightBox($slider);
 
             $exportedContent .= $js->export();
@@ -91,6 +91,10 @@ class ShortCode extends ShortCodeScriptLoader{
         $content = $css->export();
 
         $js = new JavaScript($this->lifeCycle, "jquery.magnific-popup.min");
+
+        $content.= $js->export();
+
+        $js = new JavaScript($this->lifeCycle, "magnific");
 
         $content.= $js->export();
 
