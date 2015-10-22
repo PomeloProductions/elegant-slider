@@ -40,6 +40,10 @@ class Slider extends BaseModel{
      */
     public $pager = false;
     /**
+     * @var bool whether or not this plugin uses a light box plugin
+     */
+    public $light_box = false;
+    /**
      * @var Image[] the images that belong to this slider
      */
     private $images = null;
@@ -90,6 +94,7 @@ class Slider extends BaseModel{
             "auto_play" => "TINYINT(4) DEFAULT '0'",
             "fluid_touch" => "TINYINT(4) DEFAULT '0'",
             "pager" => "TINYINT(4) DEFAULT '0'",
+            "light_box" => "TINYINT(4) DEFAULT '0'",
             "auto_play_speed" => "INTEGER(11) DEFAULT '4000'"
         ];
     }
