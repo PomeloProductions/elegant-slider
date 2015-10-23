@@ -40,8 +40,8 @@ class ShortCode extends ShortCodeScriptLoader{
 
             $sliderView = new ViewCollection($this->lifeCycle, "slider");
 
-            $imageCollection = $this->buildCollection($sliderView, $images);
-            $exportedContent .= $imageCollection->export();
+            $sliderView = $this->buildCollection($sliderView, $images);
+            $exportedContent .= $sliderView->export();
 
             $js = new JavaScript($this->lifeCycle, "jquery.bxslider");
             $exportedContent .= $js->export();
