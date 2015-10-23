@@ -40,6 +40,9 @@ class ShortCode extends ShortCodeScriptLoader{
 
             $sliderView = new ViewCollection($this->lifeCycle, "slider");
 
+            $sliderView->setTemplateVar("title", $slider->name);
+            $sliderView->setTemplateVar("subtitle", $slider->description);
+
             $sliderView = $this->buildCollection($sliderView, $images);
             $exportedContent .= $sliderView->export();
 
