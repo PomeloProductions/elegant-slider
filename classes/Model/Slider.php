@@ -20,10 +20,6 @@ class Slider extends BaseModel{
      */
     public $name;
     /**
-     * @var string the subtitle of this slider
-     */
-    public $subtitle;
-    /**
      * @var string a description of this slider
      */
     public $description;
@@ -93,7 +89,6 @@ class Slider extends BaseModel{
     public static function get_fields(){
         return [
             "name" => "TEXT",
-            "subtitle" => "TEXT",
             "description" => "TEXT",
             "deleted_at" => "DATETIME",
             "auto_play" => "TINYINT(4) DEFAULT '0'",
