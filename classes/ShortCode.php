@@ -9,6 +9,7 @@
 namespace ElegantSlider;
 
 
+use ElegantSlider\Model\Image;
 use ElegantSlider\Model\Slider;
 use WordWrap\Assets\Script\JavaScript;
 use WordWrap\Assets\StyleSheet\CSS;
@@ -36,7 +37,10 @@ class ShortCode extends ShortCodeScriptLoader{
             
             $images = $slider->getImages();
 
-            $imageCollection = $this->buildCollection($images);
+
+            $sliderView = new ViewCollection($this->lifeCycle, "slider");
+
+            $imageCollection = $this->buildCollection($sliderView, $images);
             $exportedContent .= $imageCollection->export();
 
             $js = new JavaScript($this->lifeCycle, "jquery.bxslider");
@@ -67,17 +71,21 @@ class ShortCode extends ShortCodeScriptLoader{
         // TODO: Implement addScript() method.
     }
 
-    private function buildCollection($images) {
-        $imageCollection = new ViewCollection($this->lifeCycle, "slider");
+    /**
+     * @param ViewCollection $sliderView the parent view of the images
+     * @param $images Image[] all images associated with this slider
+     * @return ViewCollection the same sliderView, but with all images added to it
+     */
+    private function buildCollection(ViewCollection $sliderView, $images) {
 
         foreach ($images as $image){
             $imageView = new View($this->lifeCycle, "image");
 
             $imageView->setTemplateVar("image_url", $image->image_url);
 
-            $imageCollection->addChildView("image", $imageView);
+            $sliderView->addChildView("image", $imageView);
         }
-        return $imageCollection;
+        return $sliderView;
     }
 
     /**
