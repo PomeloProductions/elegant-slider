@@ -2,8 +2,8 @@
  * Created by bryce on 10/22/15.
  */
 
-$(document).ready(function() {
-    $('.bxslider').magnificPopup({
+jQuery(document).ready(function() {
+    jQuery('.bxslider').magnificPopup({
         delegate: 'img', // child items selector, by clicking on it popup will open
         type: 'image',
         gallery: {
