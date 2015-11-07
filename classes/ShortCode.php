@@ -85,6 +85,7 @@ class ShortCode extends ShortCodeScriptLoader{
             $imageView = new View($this->lifeCycle, "image");
 
             $imageView->setTemplateVar("image_url", $image->image_url);
+            $imageView->setTemplateVar("image_name", $image->name);
 
             $sliderView->addChildView("image", $imageView);
         }
