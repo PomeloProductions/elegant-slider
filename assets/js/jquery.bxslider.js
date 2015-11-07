@@ -1145,33 +1145,33 @@
      *  - DOM event object
      */
     var onTouchMove = function(e) {
-      // var orig = e.originalEvent,
-      // touchPoints = (typeof orig.changedTouches !== 'undefined') ? orig.changedTouches : [orig],
-      // // if scrolling on y axis, do not prevent default
-      // xMovement = Math.abs(touchPoints[0].pageX - slider.touch.start.x),
-      // yMovement = Math.abs(touchPoints[0].pageY - slider.touch.start.y),
-      // value = 0,
-      // change = 0;
+      var orig = e.originalEvent,
+          touchPoints = (typeof orig.changedTouches !== 'undefined') ? orig.changedTouches : [orig],
+      // if scrolling on y axis, do not prevent default
+          xMovement = Math.abs(touchPoints[0].pageX - slider.touch.start.x),
+          yMovement = Math.abs(touchPoints[0].pageY - slider.touch.start.y),
+          value = 0,
+          change = 0;
 
-      // // x axis swipe
-      // if ((xMovement * 3) > yMovement && slider.settings.preventDefaultSwipeX) {
-      //   e.preventDefault();
-      // // y axis swipe
-      // } else if ((yMovement * 3) > xMovement && slider.settings.preventDefaultSwipeY) {
-      //   e.preventDefault();
-      // }
-      // if (slider.settings.mode !== 'fade' && slider.settings.oneToOneTouch) {
-      //   // if horizontal, drag along x axis
-      //   if (slider.settings.mode === 'horizontal') {
-      //     change = touchPoints[0].pageX - slider.touch.start.x;
-      //     value = slider.touch.originalPos.left + change;
-      //   // if vertical, drag along y axis
-      //   } else {
-      //     change = touchPoints[0].pageY - slider.touch.start.y;
-      //     value = slider.touch.originalPos.top + change;
-      //   }
-      //   setPositionProperty(value, 'reset', 0);
-      // }
+      // x axis swipe
+      if ((xMovement * 3) > yMovement && slider.settings.preventDefaultSwipeX) {
+        e.preventDefault();
+        // y axis swipe
+      } else if ((yMovement * 3) > xMovement && slider.settings.preventDefaultSwipeY) {
+        e.preventDefault();
+      }
+      if (slider.settings.mode !== 'fade' && slider.settings.oneToOneTouch) {
+        // if horizontal, drag along x axis
+        if (slider.settings.mode === 'horizontal') {
+          change = touchPoints[0].pageX - slider.touch.start.x;
+          value = slider.touch.originalPos.left + change;
+          // if vertical, drag along y axis
+        } else {
+          change = touchPoints[0].pageY - slider.touch.start.y;
+          value = slider.touch.originalPos.top + change;
+        }
+        setPositionProperty(value, 'reset', 0);
+      }
     };
 
     /**
@@ -1181,60 +1181,59 @@
      *  - DOM event object
      */
     var onTouchEnd = function(e) {
-      // slider.viewport.unbind('touchmove MSPointerMove pointermove', onTouchMove);
-      // //enable slider controls as soon as user stops interacing with slides
-      // slider.controls.el.removeClass('disabled');
-      // var orig    = e.originalEvent,
-      // touchPoints = (typeof orig.changedTouches !== 'undefined') ? orig.changedTouches : [orig],
-      // value       = 0,
-      // distance    = 0;
-      // // record end x, y positions
-      // slider.touch.end.x = touchPoints[0].pageX;
-      // slider.touch.end.y = touchPoints[0].pageY;
-      // // if fade mode, check if absolute x distance clears the threshold
-      // if (slider.settings.mode === 'fade') {
-      //   distance = Math.abs(slider.touch.start.x - slider.touch.end.x);
-      //   if (distance >= slider.settings.swipeThreshold) {
-      //     if (slider.touch.start.x > slider.touch.end.x) {
-      //       el.goToNextSlide();
-      //     } else {
-      //       el.goToPrevSlide();
-      //     }
-      //     el.stopAuto();
-      //   }
-      // // not fade mode
-      // } else {
-      //   console.log("else" + slider.settings.lockToSlide);
-      //   // calculate distance and el's animate property
-      //   if (slider.settings.mode === 'horizontal') {
-      //     distance = slider.touch.end.x - slider.touch.start.x;
-      //     value = slider.touch.originalPos.left;
-      //   } else {
-      //     distance = slider.touch.end.y - slider.touch.start.y;
-      //     value = slider.touch.originalPos.top;
-      //   }
-      //   // if not infinite loop and first / last slide, do not attempt a slide transition
-      //   if (!slider.settings.infiniteLoop && ((slider.active.index === 0 && distance > 0) || (slider.active.last && distance < 0))) {
-      //     setPositionProperty(value, 'reset', 200);
-      //   } else if(slider.settings.lockToSlide) {
-      //     // check if distance clears threshold
-      //     if (Math.abs(distance) >= slider.settings.swipeThreshold) {
-      //       if (distance < 0) {
-      //         el.goToNextSlide();
-      //       } else {
-      //         el.goToPrevSlide();
-      //       }
-      //       el.stopAuto();
-      //     } else {
-      //       // el.animate(property, 200);
-      //       setPositionProperty(value, 'reset', 200);
-      //     }
-      //   }
-      // }
-      // slider.viewport.unbind('touchend MSPointerUp pointerup', onTouchEnd);
-      // if (slider.viewport.get(0).releasePointerCapture) {
-      //   slider.viewport.get(0).releasePointerCapture(slider.pointerId);
-      // }
+      slider.viewport.unbind('touchmove MSPointerMove pointermove', onTouchMove);
+      //enable slider controls as soon as user stops interacing with slides
+      slider.controls.el.removeClass('disabled');
+      var orig    = e.originalEvent,
+          touchPoints = (typeof orig.changedTouches !== 'undefined') ? orig.changedTouches : [orig],
+          value       = 0,
+          distance    = 0;
+      // record end x, y positions
+      slider.touch.end.x = touchPoints[0].pageX;
+      slider.touch.end.y = touchPoints[0].pageY;
+      // if fade mode, check if absolute x distance clears the threshold
+      if (slider.settings.mode === 'fade') {
+        distance = Math.abs(slider.touch.start.x - slider.touch.end.x);
+        if (distance >= slider.settings.swipeThreshold) {
+          if (slider.touch.start.x > slider.touch.end.x) {
+            el.goToNextSlide();
+          } else {
+            el.goToPrevSlide();
+          }
+          el.stopAuto();
+        }
+        // not fade mode
+      } else {
+        // calculate distance and el's animate property
+        if (slider.settings.mode === 'horizontal') {
+          distance = slider.touch.end.x - slider.touch.start.x;
+          value = slider.touch.originalPos.left;
+        } else {
+          distance = slider.touch.end.y - slider.touch.start.y;
+          value = slider.touch.originalPos.top;
+        }
+        // if not infinite loop and first / last slide, do not attempt a slide transition
+        if (!slider.settings.infiniteLoop && ((slider.active.index === 0 && distance > 0) || (slider.active.last && distance < 0))) {
+          setPositionProperty(value, 'reset', 200);
+        } else if(slider.settings.lockToSlide) {
+          // check if distance clears threshold
+          if (Math.abs(distance) >= slider.settings.swipeThreshold) {
+            if (distance < 0) {
+              el.goToNextSlide();
+            } else {
+              el.goToPrevSlide();
+            }
+            el.stopAuto();
+          } else {
+            // el.animate(property, 200);
+            setPositionProperty(value, 'reset', 200);
+          }
+        }
+      }
+      slider.viewport.unbind('touchend MSPointerUp pointerup', onTouchEnd);
+      if (slider.viewport.get(0).releasePointerCapture) {
+        slider.viewport.get(0).releasePointerCapture(slider.pointerId);
+      }
     };
 
     /**
