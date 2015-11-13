@@ -42,6 +42,7 @@ class ShortCode extends ShortCodeScriptLoader{
 
             $sliderView->setTemplateVar("title", $slider->name);
             $sliderView->setTemplateVar("subtitle", $slider->description);
+            $sliderView->setTemplateVar("id", $slider->id);
 
             $sliderView = $this->buildCollection($sliderView, $images);
             $exportedContent .= $sliderView->export();
@@ -108,6 +109,8 @@ class ShortCode extends ShortCodeScriptLoader{
         $content.= $js->export();
 
         $js = new JavaScript($this->lifeCycle, "magnific");
+
+        $js->setTemplateVar("id", $slider->id);
 
         $content.= $js->export();
 
