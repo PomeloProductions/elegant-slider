@@ -9,6 +9,9 @@ jQuery(document).ready(function(){
         'pause' : {{auto_play_speed}},
         'touchEnabled' : {{fluid_touch}},
         'oneToOneTouch' : {{fluid_touch}},
-        'pager' : {{pager}}
+        'pager' : {{pager}},
+        "onSliderLoad" : function() {
+            jQuery(".bxslider li:not(.bx-clone) img").addClass("bx-original");
+        }
     });
 });

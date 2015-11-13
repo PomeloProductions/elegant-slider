@@ -3,8 +3,8 @@
  */
 
 jQuery(document).ready(function() {
-    jQuery('.bxslider#{{id}}').magnificPopup({
-        delegate: 'img', // child items selector, by clicking on it popup will open
+    jQuery('.bxslider.slider-{{id}}').magnificPopup({
+        delegate: 'img.bx-original', // child items selector, by clicking on it popup will open
         type: 'image',
         image: {
             titleSrc: 'data-title'
