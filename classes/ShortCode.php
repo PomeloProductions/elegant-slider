@@ -51,6 +51,7 @@ class ShortCode extends ShortCodeScriptLoader{
             $exportedContent .= $js->export();
             $js = new JavaScript($this->lifeCycle, "plugin");
 
+            $js->setTemplateVar('id', $slider->id);
             $js->setTemplateVar('auto_play', $slider->auto_play ? 'true' : 'false');
             $js->setTemplateVar('fluid_touch', $slider->fluid_touch ? 'true' : 'false');
             $js->setTemplateVar('pager', $slider->pager ? 'true' : 'false');

@@ -11,7 +11,7 @@ jQuery(document).ready(function(){
         'oneToOneTouch' : {{fluid_touch}},
         'pager' : {{pager}},
         "onSliderLoad" : function() {
-            jQuery(".bxslider li:not(.bx-clone) img").addClass("bx-original");
+            jQuery(".bxslider.slider-{{id}} li:not(.bx-clone) img").addClass("bx-original");
         }
     });
 });
