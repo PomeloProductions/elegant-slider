@@ -3,7 +3,7 @@
  */
 jQuery(document).ready(function(){
     jQuery('.bxslider').bxSlider({
-        'startSlide' : 1,
+        'startSlide' : {{start_slide}},
         'lockToSlide' : false,
         'auto' : {{auto_play}},
         'autoHover' : true,
