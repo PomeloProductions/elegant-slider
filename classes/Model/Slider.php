@@ -32,6 +32,10 @@ class Slider extends BaseModel{
      */
     public $auto_play_speed = 4000;
     /**
+     * @var int the slide that we want to start on
+     */
+    public $start_slide = 0;
+    /**
      * @var bool whether or not this slider has fluid touch between elements
      */
     public $fluid_touch = false;
@@ -95,6 +99,7 @@ class Slider extends BaseModel{
             "fluid_touch" => "TINYINT(4) DEFAULT '0'",
             "pager" => "TINYINT(4) DEFAULT '0'",
             "light_box" => "TINYINT(4) DEFAULT '0'",
+            "start_slide" => "INT(11) DEFAULT '0'",
             "auto_play_speed" => "INTEGER(11) DEFAULT '4000'"
         ];
     }
