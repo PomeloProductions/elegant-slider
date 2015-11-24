@@ -34,6 +34,14 @@ class Image extends BaseModel{
      */
     public $image_url;
     /**
+     * @var string the url that will be opened when this image is clicked, or null if there is none
+     */
+    public $image_link;
+    /**
+     * @var string in correspondence with the previous variable this will be '_blank' or '_self' defautls to '_self'
+     */
+    public $image_link_target = '_self';
+    /**
      * @var int the id of this image's slider
      */
     public $slider_id;
@@ -100,6 +108,8 @@ class Image extends BaseModel{
             "description" => "TEXT",
             "order" => "INTEGER(11)",
             "image_url" => "TEXT",
+            "image_link" => "VARCHAR(255)",
+            "image_link_target" => "VARCHAR(20) NOT NULL DEFAULT '_self'",
             "deleted_at" => "DATETIME"
         ];
     }
