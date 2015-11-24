@@ -6,6 +6,7 @@ jQuery(document).ready(function(){
         'startSlide' : 1,
         'lockToSlide' : false,
         'auto' : {{auto_play}},
+        'autoHover' : true,
         'pause' : {{auto_play_speed}},
         'touchEnabled' : {{fluid_touch}},
         'oneToOneTouch' : {{fluid_touch}},
