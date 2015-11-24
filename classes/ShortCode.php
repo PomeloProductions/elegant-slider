@@ -84,11 +84,17 @@ class ShortCode extends ShortCodeScriptLoader{
     private function buildCollection(ViewCollection $sliderView, $images) {
 
         foreach ($images as $image){
-            $imageView = new View($this->lifeCycle, "image");
+            $layout = $image->image_link ? "image_link" : "image";
+            $imageView = new View($this->lifeCycle, $layout);
 
             $imageView->setTemplateVar("image_url", $image->image_url);
             $imageView->setTemplateVar("image_name", $image->name);
             $imageView->setTemplateVar("image_description", $image->description);
+
+            if($image->image_link) {
+                $imageView->setTemplateVar("image_link", $image->image_link);
+                $imageView->setTemplateVar("image_link_target", $image->image_link_target);
+            }
 
             $sliderView->addChildView("image", $imageView);
         }
