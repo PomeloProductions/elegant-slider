@@ -48,6 +48,10 @@ class Slider extends BaseModel{
      */
     public $light_box = false;
     /**
+     * @var bool whether or not this slider is only a popup
+     */
+    public $popup_only = false;
+    /**
      * @var Image[] the images that belong to this slider
      */
     private $images = null;
@@ -94,13 +98,14 @@ class Slider extends BaseModel{
         return [
             "name" => "TEXT",
             "description" => "TEXT",
-            "deleted_at" => "DATETIME",
             "auto_play" => "TINYINT(4) DEFAULT '0'",
             "fluid_touch" => "TINYINT(4) DEFAULT '0'",
             "pager" => "TINYINT(4) DEFAULT '0'",
             "light_box" => "TINYINT(4) DEFAULT '0'",
-            "start_slide" => "INT(11) DEFAULT '0'",
-            "auto_play_speed" => "INTEGER(11) DEFAULT '4000'"
+            "start_slide" => "INTEGER(11) DEFAULT '0'",
+            "auto_play_speed" => "INTEGER(11) DEFAULT '4000'",
+            "popup_only" => "INTEGER(11) DEFAULT '0'",
+            "deleted_at" => "DATETIME"
         ];
     }
 }
