@@ -75,11 +75,18 @@ class Slider extends BaseModel{
     }
 
     /**
+     * loads the image variables into memory
+     */
+    public function loadImages() {
+        $this->images = Image::fetchImagesForSlider($this);
+    }
+
+    /**
      * @return Image[]
      */
     public function getImages(){
-        if(!$this->images)
-            $this->images = Image::fetchImagesForSlider($this);
+        if(!count($this->images))
+            $this->loadImages();
 
         return $this->images;
     }
