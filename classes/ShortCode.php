@@ -34,34 +34,39 @@ class ShortCode extends ShortCodeScriptLoader{
 
             $css->setTemplateVar("plugin_directory", plugin_dir_url(__DIR__ . "../"));
             $exportedContent.= $css->export();
-            
-            $images = $slider->getImages();
+
+            if ($slider->popup_only) {
+
+            }
+            else {
+                $images = $slider->getImages();
 
 
-            $sliderView = new ViewCollection($this->lifeCycle, "slider");
+                $sliderView = new ViewCollection($this->lifeCycle, "slider");
 
-            $sliderView->setTemplateVar("title", $slider->name);
-            $sliderView->setTemplateVar("subtitle", $slider->description);
-            $sliderView->setTemplateVar("id", $slider->id);
+                $sliderView->setTemplateVar("title", $slider->name);
+                $sliderView->setTemplateVar("subtitle", $slider->description);
+                $sliderView->setTemplateVar("id", $slider->id);
 
-            $sliderView = $this->buildCollection($sliderView, $images);
-            $exportedContent .= $sliderView->export();
+                $sliderView = $this->buildCollection($sliderView, $images);
+                $exportedContent .= $sliderView->export();
 
-            $js = new JavaScript($this->lifeCycle, "jquery.bxslider");
-            $exportedContent .= $js->export();
-            $js = new JavaScript($this->lifeCycle, "plugin");
+                $js = new JavaScript($this->lifeCycle, "jquery.bxslider");
+                $exportedContent .= $js->export();
+                $js = new JavaScript($this->lifeCycle, "plugin");
 
-            $js->setTemplateVar('id', $slider->id);
-            $js->setTemplateVar('auto_play', $slider->auto_play ? 'true' : 'false');
-            $js->setTemplateVar('fluid_touch', $slider->fluid_touch ? 'true' : 'false');
-            $js->setTemplateVar('pager', $slider->pager ? 'true' : 'false');
-            $js->setTemplateVar('auto_play_speed', $slider->auto_play_speed);
-            $js->setTemplateVar("start_slide", $slider->start_slide);
+                $js->setTemplateVar('id', $slider->id);
+                $js->setTemplateVar('auto_play', $slider->auto_play ? 'true' : 'false');
+                $js->setTemplateVar('fluid_touch', $slider->fluid_touch ? 'true' : 'false');
+                $js->setTemplateVar('pager', $slider->pager ? 'true' : 'false');
+                $js->setTemplateVar('auto_play_speed', $slider->auto_play_speed);
+                $js->setTemplateVar("start_slide", $slider->start_slide);
 
-            if($slider->light_box)
-                $exportedContent.= $this->buildLightBox($slider);
+                if ($slider->light_box)
+                    $exportedContent .= $this->buildLightBox($slider);
 
-            $exportedContent .= $js->export();
+                $exportedContent .= $js->export();
+            }
         }
 
         return $exportedContent;
@@ -108,13 +113,7 @@ class ShortCode extends ShortCodeScriptLoader{
      */
     private function buildLightBox(Slider $slider) {
 
-        $css = new CSS($this->lifeCycle, "magnific-popup");
-
-        $content = $css->export();
-
-        $js = new JavaScript($this->lifeCycle, "jquery.magnific-popup.min");
-
-        $content.= $js->export();
+        $content = $this->loadMagnificAssets();
 
         $js = new JavaScript($this->lifeCycle, "magnific");
 
@@ -123,5 +122,22 @@ class ShortCode extends ShortCodeScriptLoader{
         $content.= $js->export();
 
         return $content;
+    }
+
+    /**
+     * @return string loads up all assets needed for magnific
+     */
+    private function loadMagnificAssets() {
+
+        $css = new CSS($this->lifeCycle, "magnific-popup");
+
+        $content = $css->export();
+
+        $js = new JavaScript($this->lifeCycle, "jquery.magnific-popup.min");
+
+        $content.= $js->export();
+
+        return $content;
+
     }
 }
