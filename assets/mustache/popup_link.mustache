@@ -1,0 +1,20 @@
+<a href="#" class="popup-gallery">{{{popup_link_text}}}</a>
+<script type="application/javascript">
+    jQuery("body").ready(function() {
+
+
+        jQuery(".popup-gallery").magnificPopup({
+            type: 'image',
+            items: [
+            {{#images}}
+                {
+                    src: '{{{image_url}}}'
+                }
+            {{/images}}
+            ],
+            gallery: {
+                enabled: true
+            }
+        });
+    });
+</script>
