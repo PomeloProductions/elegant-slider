@@ -1,9 +1,9 @@
-<a href="#" class="popup-gallery">{{{popup_link_text}}}</a>
+<a href="#" class="popup-gallery {{{id}}}">{{{popup_link_text}}}</a>
 <script type="application/javascript">
     jQuery("body").ready(function() {
 
 
-        jQuery(".popup-gallery").magnificPopup({
+        jQuery(".popup-gallery.{{{id}}}").magnificPopup({
             type: 'image',
             items: [
             {{#images}}
