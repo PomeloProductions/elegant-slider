@@ -52,6 +52,10 @@ class Slider extends BaseModel{
      */
     public $popup_only = false;
     /**
+     * @var string the text of the link that will display when this slider is a popup
+     */
+    public $popup_link_text;
+    /**
      * @var Image[] the images that belong to this slider
      */
     private $images = null;
@@ -105,6 +109,7 @@ class Slider extends BaseModel{
             "start_slide" => "INTEGER(11) DEFAULT '0'",
             "auto_play_speed" => "INTEGER(11) DEFAULT '4000'",
             "popup_only" => "INTEGER(11) DEFAULT '0'",
+            "popup_link_text" => "TEXT",
             "deleted_at" => "DATETIME"
         ];
     }
