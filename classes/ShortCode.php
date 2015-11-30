@@ -13,6 +13,7 @@ use ElegantSlider\Model\Image;
 use ElegantSlider\Model\Slider;
 use WordWrap\Assets\Script\JavaScript;
 use WordWrap\Assets\StyleSheet\CSS;
+use WordWrap\Assets\Template\Mustache\MustacheTemplate;
 use WordWrap\Assets\View\View;
 use WordWrap\Assets\View\ViewCollection;
 use WordWrap\ShortCodeScriptLoader;
@@ -30,15 +31,23 @@ class ShortCode extends ShortCodeScriptLoader{
 
         if ($slider) {
 
-            $css = new CSS($this->lifeCycle, "jquery.bxslider");
-
-            $css->setTemplateVar("plugin_directory", plugin_dir_url(__DIR__ . "../"));
-            $exportedContent.= $css->export();
-
             if ($slider->popup_only) {
 
+                $exportedContent.= $this->loadMagnificAssets();
+
+                $slider->loadImages();
+
+                $template = new MustacheTemplate($this->lifeCycle, "popup_link", $slider);
+
+                $exportedContent.= $template->export();
             }
             else {
+
+                $css = new CSS($this->lifeCycle, "jquery.bxslider");
+
+                $css->setTemplateVar("plugin_directory", plugin_dir_url(__DIR__ . "../"));
+                $exportedContent.= $css->export();
+
                 $images = $slider->getImages();
 
 
