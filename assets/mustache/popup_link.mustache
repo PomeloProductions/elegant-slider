@@ -8,7 +8,9 @@
             items: [
             {{#images}}
                 {
-                    src: '{{{image_url}}}'
+                    src: '{{{image_url}}}',
+                    title: "<span class='image_name'>{{name}}</span><span class='image_description'>{{description}}</span>"
+
                 },
             {{/images}}
             ],
