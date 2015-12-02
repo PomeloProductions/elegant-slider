@@ -20,6 +20,8 @@ use WordWrap\ShortCodeScriptLoader;
 
 class ShortCode extends ShortCodeScriptLoader{
 
+
+    private static $echoedMagnificAssets = false;
     /**
      * @param  $atts shortcode inputs
      * @return string shortcode content
@@ -138,14 +140,20 @@ class ShortCode extends ShortCodeScriptLoader{
      */
     private function loadMagnificAssets() {
 
-        $css = new CSS($this->lifeCycle, "magnific-popup");
+        $content = '';
 
-        $content = $css->export();
+        if (!ShortCode::$echoedMagnificAssets) {
+            $css = new CSS($this->lifeCycle, "magnific-popup");
 
-        $js = new JavaScript($this->lifeCycle, "jquery.magnific-popup.min");
+            $content = $css->export();
 
-        $content.= $js->export();
+            $js = new JavaScript($this->lifeCycle, "jquery.magnific-popup.min");
 
+            $content .= $js->export();
+
+            ShortCode::$echoedMagnificAssets = true;
+
+        }
         return $content;
 
     }
