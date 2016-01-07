@@ -33,11 +33,13 @@ class ShortCode extends ShortCodeScriptLoader{
 
         if ($slider) {
 
+            $slider->loadImages();
+
+            $slider->prepareExport();
+
             if ($slider->popup_only) {
 
                 $exportedContent.= $this->loadMagnificAssets();
-
-                $slider->loadImages();
 
                 $template = new MustacheTemplate($this->lifeCycle, "popup_link", $slider);
 

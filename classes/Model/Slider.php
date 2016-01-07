@@ -81,6 +81,13 @@ class Slider extends BaseModel{
         $this->images = Image::fetchImagesForSlider($this);
     }
 
+    public function prepareExport() {
+        foreach ($this->getImages() as $image) {
+
+            $image->prepareExport();
+        }
+    }
+
     /**
      * @return Image[]
      */

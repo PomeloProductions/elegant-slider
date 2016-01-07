@@ -76,6 +76,14 @@ class Image extends BaseModel{
         return $images;
     }
 
+    public function prepareExport() {
+        $this->name = apply_filters("elegant_slider/image_name", $this->name);
+        $this->name = addslashes($this->name);
+
+        $this->description = apply_filters("elegant_slider/image_description", $this->description);
+        $this->description = addslashes($this->description);
+    }
+
     /**
      * Overwrite this in your concrete class. Returns the table name used to
      * store models of this class.
