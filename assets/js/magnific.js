@@ -11,6 +11,12 @@ jQuery(document).ready(function() {
         },
         gallery: {
             enabled: true
-        }
+        },
+        callbacks : ElegantSlider
     });
 });
+
+var ElegantSlider = {
+
+
+};
