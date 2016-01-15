@@ -1,0 +1,46 @@
+<div id="sliders-list-page">
+    <form method="post" action="?page=elegant_slider" id="admin_form" name="admin_form">
+        <h2>Elegatn Slider
+            <a href="admin.php?page=elegant_slider&task=create'" class="add-new-h2">Add New Slider</a>
+        </h2>
+
+        <div class="alignleft actions">
+            <input type="button" value="Search" onclick="document.getElementById('page_number').value='1'; document.getElementById('serch_or_not').value='search';
+             document.getElementById('admin_form').submit();" class="button-secondary action">
+            <input type="button" value="Reset" onclick="window.location.href='admin.php?page=sliders_huge_it_slider'" class="button-secondary action">
+        </div>
+        <div class="tablenav-pages">
+            <span class="displaying-num">1 items</span>
+
+        </div>
+        <input type="hidden" id="page_number" name="page_number" value="1">
+
+        <input type="hidden" id="serch_or_not" name="serch_or_not" value="">
+        <table class="wp-list-table widefat fixed pages" style="width:95%">
+            <thead>
+            <tr>
+                <th scope="col" id="id" style="width:30px"><span>ID</span><span class="sorting-indicator"></span></th>
+                <th scope="col" id="name" style="width:85px"><span>Name</span><span class="sorting-indicator"></span></th>
+                <th scope="col" id="prod_count" style="width:75px;"><span>Images</span><span class="sorting-indicator"></span></th>
+                <th style="width:40px">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#sliders}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td><a href="?page=elegant_slider&task=edit_slider&id={{id}}">{{{name}}}</a></td>
+                    <td>({{count}})</td>
+                    <td><a href="?page=elegant_slider&task=delete&id={{id}}">Delete</a></td>
+                </tr>
+            {{/sliders}}
+            </tbody>
+        </table>
+        <input type="hidden" name="oreder_move" id="oreder_move" value="">
+        <input type="hidden" name="asc_or_desc" id="asc_or_desc" value="">
+        <input type="hidden" name="order_by" id="order_by" value="">
+        <input type="hidden" name="saveorder" id="saveorder" value="">
+
+
+    </form>
+</div>
