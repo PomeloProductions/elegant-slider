@@ -1,24 +1,5 @@
 /*#########SLIDERS LIST PAGE###########*/
-#sliders-list-page  .add-new-h2 {
-    cursor:pointer;
-}
-
-#sliders-list-page .actions {
-
-}
-
-#sliders-list-page .actions label {
-    display:block;
-    float:left;
-    margin-top:5px;
-}
-
-#sliders-list-page .actions input {
-    display:block;
-    float:left;
-}
-
-#sliders-list-page table tr.has-background {background:#f9f9f9;}
+#admin-sliders-list tr:nth-child(odd) {background:#f9f9f9;}
 
 /*SLIDERS TABS*/
 #sliders-list  {
