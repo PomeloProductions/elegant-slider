@@ -24,14 +24,14 @@
                 <ul id="images-list" class="ui-sortable">
                     {{#images}}
                         <li class="has-background ui-sortable-handle">
-                            <input class="order_by" type="hidden" name="order_by_1" value="0">
+                            <input class="order_by" type="hidden" name="id[]" value="">
                             <div class="image-container">
-                                <img src="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/27043514/Masqu01.jpg">
+                                <img src="{{image_url}}">
                                 <div>
-                                    <input type="hidden" name="imagess1" id="_unique_name1" value="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/27043514/Masqu01.jpg">
+                                    <input type="hidden" name="image_url[]" value="{{image_url}}">
                                     <span class="wp-media-buttons-icon"></span>
                                     <div class="huge-it-editnewuploader uploader button1 add-new-image">
-                                        <input type="button" class="button1 wp-media-buttons-icon editimageicon" name="_unique_name_button1" id="_unique_name_button1" value="Edit image">
+                                        <input type="button" class="button1 wp-media-buttons-icon editimageicon" name="_unique_name_button1" value="Edit image">
                                     </div>
                                 </div>
                             </div>
