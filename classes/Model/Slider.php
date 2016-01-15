@@ -89,21 +89,6 @@ class Slider extends BaseModel{
     }
 
     /**
-     * Mostly hear to return a count of how many images are in this slider
-     * @param $name string the variable being gotten
-     * @return mixed different depending on getter
-     */
-    public function __get($name) {
-        switch($name) {
-            case "count":
-            case "total":
-                return count($this->getImages());
-        }
-
-        return null;
-    }
-
-    /**
      * @return Image[]
      */
     public function getImages(){
