@@ -8,50 +8,6 @@
             <div id="post-body">
                 <div id="post-body-heading">
                     <h3>Slides</h3>
-                    <script>
-                        jQuery(document).ready(function($){
-                            /*jQuery(".wp-media-buttons-icon").click(function() {
-                                jQuery(".attachment-filters").css("display","none");
-                            });*/
-                            var _custom_media = true,
-                                    _orig_send_attachment = wp.media.editor.send.attachment;
-
-
-                            jQuery('.huge-it-newuploader .button').click(function(e) {
-                                var send_attachment_bkp = wp.media.editor.send.attachment;
-
-                                var button = jQuery(this);
-                                var id = button.attr('id').replace('_button', '');
-                                _custom_media = true;
-
-                                jQuery("#"+id).val('');
-                                wp.media.editor.send.attachment = function(props, attachment){
-                                    if ( _custom_media ) {
-                                        jQuery("#"+id).val(attachment.url+';;;'+jQuery("#"+id).val());
-                                        jQuery("#save-buttom").click();
-                                    } else {
-                                        return _orig_send_attachment.apply( this, [props, attachment] );
-                                    };
-                                }
-
-                                wp.media.editor.open(button);
-
-                                return false;
-                            });
-
-                            jQuery('.add_media').on('click', function(){
-                                _custom_media = false;
-
-                            });
-                            /*jQuery(".wp-media-buttons-icon").click(function() {
-                                jQuery(".media-menu-item").css("display","none");
-                                jQuery(".media-menu-item:first").css("display","block");
-                                jQuery(".separator").next().css("display","block");
-                                jQuery('.attachment-filters').val('image').trigger('change');
-                                jQuery(".attachment-filters").css("display","none");
-                            });*/
-                        });
-                    </script>
                     <input type="hidden" name="imagess" id="_unique_name">
                     <span class="wp-media-buttons-icon"></span>
                     <div class="huge-it-newuploader uploader button button-primary add-new-image">
@@ -64,22 +20,6 @@
                     <a href="admin.php?page=sliders_huge_it_slider&amp;task=popup_video&amp;id=1&amp;TB_iframe=1" class="button button-primary add-video-slide thickbox" id="slideup3s" value="iframepop">
                         <span class="wp-media-buttons-icon"></span>Add Video Slide
                     </a>
-                    <script>
-                        jQuery(document).ready(function ($) {
-                            jQuery("#slideup").click(function () {
-                                window.parent.uploadID = jQuery(this).prev('input');
-                                formfield = jQuery('.upload').attr('name');
-                                tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
-                                return false;
-                            });
-                            window.send_to_editor = function (html) {
-                                imgurl = jQuery('img', html).attr('src');
-                                window.parent.uploadID.val(imgurl);
-                                tb_remove();
-                                jQuery("#save-buttom").click();
-                            };
-                        });
-                    </script>
                 </div>
                 <ul id="images-list" class="ui-sortable">
                     <li class="has-background ui-sortable-handle">
@@ -87,44 +27,6 @@
                         <div class="image-container">
                             <img src="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/27043514/Masqu01.jpg">
                             <div>
-                                <script>
-                                    jQuery(document).ready(function($){
-                                        var _custom_media = true,
-                                                _orig_send_attachment = wp.media.editor.send.attachment;
-
-                                        jQuery('.huge-it-editnewuploader .button1').click(function(e) {
-                                            var send_attachment_bkp = wp.media.editor.send.attachment;
-                                            var button = jQuery(this);
-                                            var id = button.attr('id').replace('_button', '');
-                                            _custom_media = true;
-                                            wp.media.editor.send.attachment = function(props, attachment){
-                                                if ( _custom_media ) {
-                                                    jQuery("#"+id).val(attachment.url);
-                                                    jQuery("#save-buttom").click();
-                                                } else {
-                                                    return _orig_send_attachment.apply( this, [props, attachment] );
-                                                };
-                                            }
-
-                                            wp.media.editor.open(button);
-                                            return false;
-                                        });
-
-                                        jQuery('.add_media').on('click', function(){
-                                            _custom_media = false;
-                                        });
-                                        /* jQuery(".huge-it-editnewuploader").click(function() {
-                                        });
-                                            jQuery(".wp-media-buttons-icon").click(function() {
-                                            jQuery(".media-menu-item").css("display","none");
-                                            jQuery(".media-menu-item:first").css("display","block");
-                                            jQuery(".separator").next().css("display","block");
-                                            jQuery('.attachment-filters').val('image').trigger('change');
-                                            jQuery(".attachment-filters").css("display","none");
-
-                                        });*/
-                                    });
-                                </script>
                                 <input type="hidden" name="imagess1" id="_unique_name1" value="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/27043514/Masqu01.jpg">
                                 <span class="wp-media-buttons-icon"></span>
                                 <div class="huge-it-editnewuploader uploader button1 add-new-image">
