@@ -1,0 +1,522 @@
+<form id="post-body" class="metabox-holder columns-2">
+    <!-- Content -->
+    <div id="post-body-content">
+
+
+
+        <div id="post-body">
+            <div id="post-body-heading">
+                <h3>Slides</h3>
+                <script>
+                    jQuery(document).ready(function($){
+                        /*jQuery(".wp-media-buttons-icon").click(function() {
+                            jQuery(".attachment-filters").css("display","none");
+                        });*/
+                        var _custom_media = true,
+                                _orig_send_attachment = wp.media.editor.send.attachment;
+
+
+                        jQuery('.huge-it-newuploader .button').click(function(e) {
+                            var send_attachment_bkp = wp.media.editor.send.attachment;
+
+                            var button = jQuery(this);
+                            var id = button.attr('id').replace('_button', '');
+                            _custom_media = true;
+
+                            jQuery("#"+id).val('');
+                            wp.media.editor.send.attachment = function(props, attachment){
+                                if ( _custom_media ) {
+                                    jQuery("#"+id).val(attachment.url+';;;'+jQuery("#"+id).val());
+                                    jQuery("#save-buttom").click();
+                                } else {
+                                    return _orig_send_attachment.apply( this, [props, attachment] );
+                                };
+                            }
+
+                            wp.media.editor.open(button);
+
+                            return false;
+                        });
+
+                        jQuery('.add_media').on('click', function(){
+                            _custom_media = false;
+
+                        });
+                        /*jQuery(".wp-media-buttons-icon").click(function() {
+                            jQuery(".media-menu-item").css("display","none");
+                            jQuery(".media-menu-item:first").css("display","block");
+                            jQuery(".separator").next().css("display","block");
+                            jQuery('.attachment-filters').val('image').trigger('change');
+                            jQuery(".attachment-filters").css("display","none");
+                        });*/
+                    });
+                </script>
+                <input type="hidden" name="imagess" id="_unique_name">
+                <span class="wp-media-buttons-icon"></span>
+                <div class="huge-it-newuploader uploader button button-primary add-new-image">
+                    <input type="button" class="button wp-media-buttons-icon" name="_unique_name_button" id="_unique_name_button" value="Add Image Slide">
+                </div>
+                <a href="admin.php?page=sliders_huge_it_slider&amp;task=popup_posts&amp;id=1&amp;TB_iframe=1" class="button button-primary add-post-slide thickbox" id="slideup2s" value="iframepop">
+                    <input title="Add Post" class="thickbox" type="button" value="Add Post">
+                    <span class="wp-media-buttons-icon"></span>Add Post Slide
+                </a>
+                <a href="admin.php?page=sliders_huge_it_slider&amp;task=popup_video&amp;id=1&amp;TB_iframe=1" class="button button-primary add-video-slide thickbox" id="slideup3s" value="iframepop">
+                    <span class="wp-media-buttons-icon"></span>Add Video Slide
+                </a>
+                <script>
+                    jQuery(document).ready(function ($) {
+                        jQuery("#slideup").click(function () {
+                            window.parent.uploadID = jQuery(this).prev('input');
+                            formfield = jQuery('.upload').attr('name');
+                            tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+                            return false;
+                        });
+                        window.send_to_editor = function (html) {
+                            imgurl = jQuery('img', html).attr('src');
+                            window.parent.uploadID.val(imgurl);
+                            tb_remove();
+                            jQuery("#save-buttom").click();
+                        };
+                    });
+                </script>
+            </div>
+            <ul id="images-list" class="ui-sortable">
+                <li class="has-background ui-sortable-handle">
+                    <input class="order_by" type="hidden" name="order_by_1" value="0">
+                    <div class="image-container">
+                        <img src="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/27043514/Masqu01.jpg">
+                        <div>
+                            <script>
+                                jQuery(document).ready(function($){
+                                    var _custom_media = true,
+                                            _orig_send_attachment = wp.media.editor.send.attachment;
+
+                                    jQuery('.huge-it-editnewuploader .button1').click(function(e) {
+                                        var send_attachment_bkp = wp.media.editor.send.attachment;
+                                        var button = jQuery(this);
+                                        var id = button.attr('id').replace('_button', '');
+                                        _custom_media = true;
+                                        wp.media.editor.send.attachment = function(props, attachment){
+                                            if ( _custom_media ) {
+                                                jQuery("#"+id).val(attachment.url);
+                                                jQuery("#save-buttom").click();
+                                            } else {
+                                                return _orig_send_attachment.apply( this, [props, attachment] );
+                                            };
+                                        }
+
+                                        wp.media.editor.open(button);
+                                        return false;
+                                    });
+
+                                    jQuery('.add_media').on('click', function(){
+                                        _custom_media = false;
+                                    });
+                                    /* jQuery(".huge-it-editnewuploader").click(function() {
+                                    });
+                                        jQuery(".wp-media-buttons-icon").click(function() {
+                                        jQuery(".media-menu-item").css("display","none");
+                                        jQuery(".media-menu-item:first").css("display","block");
+                                        jQuery(".separator").next().css("display","block");
+                                        jQuery('.attachment-filters').val('image').trigger('change');
+                                        jQuery(".attachment-filters").css("display","none");
+
+                                    });*/
+                                });
+                            </script>
+                            <input type="hidden" name="imagess1" id="_unique_name1" value="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/27043514/Masqu01.jpg">
+                            <span class="wp-media-buttons-icon"></span>
+                            <div class="huge-it-editnewuploader uploader button1 add-new-image">
+                                <input type="button" class="button1 wp-media-buttons-icon editimageicon" name="_unique_name_button1" id="_unique_name_button1" value="Edit image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-options">
+                        <div>
+                            <label for="titleimage1">Title:</label>
+                            <input class="text_area" type="text" id="titleimage1" name="titleimage1" value="Masquerade Registration">
+                        </div>
+                        <div class="description-block">
+                            <label for="im_description1">Description:</label>
+                            <div id="wp-im_description1-wrap" class="wp-core-ui wp-editor-wrap tmce-active"><link rel="stylesheet" id="editor-buttons-css" href="http://animemke.local/wp-includes/css/editor.min.css?ver=4.4.1" type="text/css" media="all">
+                                <div id="wp-im_description1-editor-tools" class="wp-editor-tools hide-if-no-js"><div class="wp-editor-tabs"><button type="button" id="im_description1-tmce" class="wp-switch-editor switch-tmce" data-wp-editor-id="im_description1">Visual</button>
+                                    <button type="button" id="im_description1-html" class="wp-switch-editor switch-html" data-wp-editor-id="im_description1">Text</button>
+                                </div>
+                                </div>
+                                <div id="wp-im_description1-editor-container" class="wp-editor-container"><div id="qt_im_description1_toolbar" class="quicktags-toolbar"><input type="button" id="qt_im_description1_strong" class="ed_button button button-small" aria-label="Bold" value="b"><input type="button" id="qt_im_description1_em" class="ed_button button button-small" aria-label="Italic" value="i"><input type="button" id="qt_im_description1_link" class="ed_button button button-small" aria-label="Insert link" value="link"><input type="button" id="qt_im_description1_block" class="ed_button button button-small" aria-label="Blockquote" value="b-quote"><input type="button" id="qt_im_description1_del" class="ed_button button button-small" aria-label="Deleted text (strikethrough)" value="del"><input type="button" id="qt_im_description1_ins" class="ed_button button button-small" aria-label="Inserted text" value="ins"><input type="button" id="qt_im_description1_img" class="ed_button button button-small" aria-label="Insert image" value="img"><input type="button" id="qt_im_description1_ul" class="ed_button button button-small" aria-label="Bulleted list" value="ul"><input type="button" id="qt_im_description1_ol" class="ed_button button button-small" aria-label="Numbered list" value="ol"><input type="button" id="qt_im_description1_li" class="ed_button button button-small" aria-label="List item" value="li"><input type="button" id="qt_im_description1_code" class="ed_button button button-small" aria-label="Code" value="code"><input type="button" id="qt_im_description1_more" class="ed_button button button-small" aria-label="Insert Read More tag" value="more"><input type="button" id="qt_im_description1_close" class="ed_button button button-small" title="Close all open tags" value="close tags"></div><div id="mceu_15" class="mce-tinymce mce-container mce-panel" hidefocus="1" tabindex="-1" role="application" style="visibility: hidden; border-width: 1px;"><div id="mceu_15-body" class="mce-container-body mce-stack-layout"><div id="mceu_16" class="mce-toolbar-grp mce-container mce-panel mce-stack-layout-item mce-first" hidefocus="1" tabindex="-1" role="group"><div id="mceu_16-body" class="mce-container-body mce-stack-layout"><div id="mceu_17" class="mce-container mce-toolbar mce-stack-layout-item mce-first mce-last" role="toolbar"><div id="mceu_17-body" class="mce-container-body mce-flow-layout"><div id="mceu_18" class="mce-container mce-flow-layout-item mce-first mce-last mce-btn-group" role="group"><div id="mceu_18-body"><div id="mceu_0" class="mce-widget mce-btn mce-first" tabindex="-1" aria-labelledby="mceu_0" role="button" aria-label="Bold"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bold"></i></button></div><div id="mceu_1" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_1" role="button" aria-label="Italic"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-italic"></i></button></div><div id="mceu_2" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_2" role="button" aria-label="Underline"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-underline"></i></button></div><div id="mceu_3" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_3" role="button" aria-label="Blockquote"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-blockquote"></i></button></div><div id="mceu_4" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_4" role="button" aria-label="Strikethrough"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-strikethrough"></i></button></div><div id="mceu_5" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_5" role="button" aria-label="Bullet list"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bullist"></i></button></div><div id="mceu_6" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_6" role="button" aria-label="Numbered list"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-numlist"></i></button></div><div id="mceu_7" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_7" role="button" aria-label="Align left"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignleft"></i></button></div><div id="mceu_8" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_8" role="button" aria-label="Align center"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-aligncenter"></i></button></div><div id="mceu_9" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_9" role="button" aria-label="Align right"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignright"></i></button></div><div id="mceu_10" class="mce-widget mce-btn mce-disabled" tabindex="-1" aria-labelledby="mceu_10" role="button" aria-label="Undo" aria-disabled="true"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-undo"></i></button></div><div id="mceu_11" class="mce-widget mce-btn mce-disabled" tabindex="-1" aria-labelledby="mceu_11" role="button" aria-label="Redo" aria-disabled="true"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-redo"></i></button></div><div id="mceu_12" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_12" role="button" aria-label="Insert/edit link"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-link"></i></button></div><div id="mceu_13" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_13" role="button" aria-label="Remove link"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-unlink"></i></button></div><div id="mceu_14" class="mce-widget mce-btn mce-last" tabindex="-1" aria-labelledby="mceu_14" role="button" aria-label="Fullscreen"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-fullscreen"></i></button></div></div></div></div></div></div></div><div id="mceu_19" class="mce-edit-area mce-container mce-panel mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><iframe id="im_description1_ifr" frameborder="0" allowtransparency="true" title="Rich Text Area. Press Alt-Shift-H for help" src='javascript:""' style="width: 100%; height: 115px; display: block;"></iframe></div><div id="mceu_20" class="mce-statusbar mce-container mce-panel mce-stack-layout-item mce-last" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><div id="mceu_20-body" class="mce-container-body mce-flow-layout"><div id="mceu_21" class="mce-path mce-flow-layout-item mce-first"><div role="button" class="mce-path-item mce-last" data-index="0" tabindex="-1" id="mceu_21-0" aria-level="0">p</div></div><div id="mceu_22" class="mce-flow-layout-item mce-last mce-resizehandle"><i class="mce-ico mce-i-resize"></i></div></div></div></div></div><textarea class="wp-editor-area" rows="5" tabindex="1" autocomplete="off" cols="40" name="im_description1" id="im_description1" aria-hidden="true" style="display: none;">The Masquerade is Anime Milwaukee’s annual cosplay competition where cosplayers pit their ultimate creations against each other and registration is now open!</textarea></div>
+                            </div>
+
+                        </div>
+                        <div class="link-block">
+                            <label for="sl_url1">URL:</label>
+                            <input class="text_area url-input" type="text" id="sl_url1" name="sl_url1" value="http://animemilwaukee.org/programming/masquerade">
+                            <label class="long" for="sl_link_target1">Open in new tab</label>
+                            <input type="hidden" name="sl_link_target1" value="">
+                            <input class="link_target" type="checkbox" id="sl_link_target1" name="sl_link_target1">
+
+                            <!--<input type="checkbox" name="pause_on_hover" id="pause_on_hover"  checked="checked"  class="link_target"/>-->
+                        </div>
+                        <div class="remove-image-container">
+                            <a class="button remove-image" href="admin.php?page=sliders_huge_it_slider&amp;id=1&amp;task=apply&amp;removeslide=1">Remove Image</a>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </li>
+                <li class="ui-sortable-handle">
+                    <input class="order_by" type="hidden" name="order_by_3" value="1">
+                    <div class="image-container">
+                        <img src="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/23215712/Jon-AMKE15-30.jpg">
+                        <div>
+                            <script>
+                                jQuery(document).ready(function($){
+                                    var _custom_media = true,
+                                            _orig_send_attachment = wp.media.editor.send.attachment;
+
+                                    jQuery('.huge-it-editnewuploader .button3').click(function(e) {
+                                        var send_attachment_bkp = wp.media.editor.send.attachment;
+                                        var button = jQuery(this);
+                                        var id = button.attr('id').replace('_button', '');
+                                        _custom_media = true;
+                                        wp.media.editor.send.attachment = function(props, attachment){
+                                            if ( _custom_media ) {
+                                                jQuery("#"+id).val(attachment.url);
+                                                jQuery("#save-buttom").click();
+                                            } else {
+                                                return _orig_send_attachment.apply( this, [props, attachment] );
+                                            };
+                                        }
+
+                                        wp.media.editor.open(button);
+                                        return false;
+                                    });
+
+                                    jQuery('.add_media').on('click', function(){
+                                        _custom_media = false;
+                                    });
+                                    /* jQuery(".huge-it-editnewuploader").click(function() {
+                                    });
+                                        jQuery(".wp-media-buttons-icon").click(function() {
+                                        jQuery(".media-menu-item").css("display","none");
+                                        jQuery(".media-menu-item:first").css("display","block");
+                                        jQuery(".separator").next().css("display","block");
+                                        jQuery('.attachment-filters').val('image').trigger('change');
+                                        jQuery(".attachment-filters").css("display","none");
+
+                                    });*/
+                                });
+                            </script>
+                            <input type="hidden" name="imagess3" id="_unique_name3" value="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/23215712/Jon-AMKE15-30.jpg">
+                            <span class="wp-media-buttons-icon"></span>
+                            <div class="huge-it-editnewuploader uploader button3 add-new-image">
+                                <input type="button" class="button3 wp-media-buttons-icon editimageicon" name="_unique_name_button3" id="_unique_name_button3" value="Edit image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-options">
+                        <div>
+                            <label for="titleimage3">Title:</label>
+                            <input class="text_area" type="text" id="titleimage3" name="titleimage3" value="Volunteer!">
+                        </div>
+                        <div class="description-block">
+                            <label for="im_description3">Description:</label>
+                            <div id="wp-im_description3-wrap" class="wp-core-ui wp-editor-wrap tmce-active"><div id="wp-im_description3-editor-tools" class="wp-editor-tools hide-if-no-js"><div class="wp-editor-tabs"><button type="button" id="im_description3-tmce" class="wp-switch-editor switch-tmce" data-wp-editor-id="im_description3">Visual</button>
+                                <button type="button" id="im_description3-html" class="wp-switch-editor switch-html" data-wp-editor-id="im_description3">Text</button>
+                            </div>
+                            </div>
+                                <div id="wp-im_description3-editor-container" class="wp-editor-container"><div id="qt_im_description3_toolbar" class="quicktags-toolbar"><input type="button" id="qt_im_description3_strong" class="ed_button button button-small" aria-label="Bold" value="b"><input type="button" id="qt_im_description3_em" class="ed_button button button-small" aria-label="Italic" value="i"><input type="button" id="qt_im_description3_link" class="ed_button button button-small" aria-label="Insert link" value="link"><input type="button" id="qt_im_description3_block" class="ed_button button button-small" aria-label="Blockquote" value="b-quote"><input type="button" id="qt_im_description3_del" class="ed_button button button-small" aria-label="Deleted text (strikethrough)" value="del"><input type="button" id="qt_im_description3_ins" class="ed_button button button-small" aria-label="Inserted text" value="ins"><input type="button" id="qt_im_description3_img" class="ed_button button button-small" aria-label="Insert image" value="img"><input type="button" id="qt_im_description3_ul" class="ed_button button button-small" aria-label="Bulleted list" value="ul"><input type="button" id="qt_im_description3_ol" class="ed_button button button-small" aria-label="Numbered list" value="ol"><input type="button" id="qt_im_description3_li" class="ed_button button button-small" aria-label="List item" value="li"><input type="button" id="qt_im_description3_code" class="ed_button button button-small" aria-label="Code" value="code"><input type="button" id="qt_im_description3_more" class="ed_button button button-small" aria-label="Insert Read More tag" value="more"><input type="button" id="qt_im_description3_close" class="ed_button button button-small" title="Close all open tags" value="close tags"></div><div id="mceu_53" class="mce-tinymce mce-container mce-panel" hidefocus="1" tabindex="-1" role="application" style="visibility: hidden; border-width: 1px;"><div id="mceu_53-body" class="mce-container-body mce-stack-layout"><div id="mceu_54" class="mce-toolbar-grp mce-container mce-panel mce-stack-layout-item mce-first" hidefocus="1" tabindex="-1" role="group"><div id="mceu_54-body" class="mce-container-body mce-stack-layout"><div id="mceu_55" class="mce-container mce-toolbar mce-stack-layout-item mce-first mce-last" role="toolbar"><div id="mceu_55-body" class="mce-container-body mce-flow-layout"><div id="mceu_56" class="mce-container mce-flow-layout-item mce-first mce-last mce-btn-group" role="group"><div id="mceu_56-body"><div id="mceu_38" class="mce-widget mce-btn mce-first" tabindex="-1" aria-labelledby="mceu_38" role="button" aria-label="Bold"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bold"></i></button></div><div id="mceu_39" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_39" role="button" aria-label="Italic"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-italic"></i></button></div><div id="mceu_40" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_40" role="button" aria-label="Underline"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-underline"></i></button></div><div id="mceu_41" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_41" role="button" aria-label="Blockquote"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-blockquote"></i></button></div><div id="mceu_42" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_42" role="button" aria-label="Strikethrough"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-strikethrough"></i></button></div><div id="mceu_43" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_43" role="button" aria-label="Bullet list"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bullist"></i></button></div><div id="mceu_44" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_44" role="button" aria-label="Numbered list"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-numlist"></i></button></div><div id="mceu_45" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_45" role="button" aria-label="Align left"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignleft"></i></button></div><div id="mceu_46" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_46" role="button" aria-label="Align center"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-aligncenter"></i></button></div><div id="mceu_47" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_47" role="button" aria-label="Align right"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignright"></i></button></div><div id="mceu_48" class="mce-widget mce-btn mce-disabled" tabindex="-1" aria-labelledby="mceu_48" role="button" aria-label="Undo" aria-disabled="true"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-undo"></i></button></div><div id="mceu_49" class="mce-widget mce-btn mce-disabled" tabindex="-1" aria-labelledby="mceu_49" role="button" aria-label="Redo" aria-disabled="true"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-redo"></i></button></div><div id="mceu_50" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_50" role="button" aria-label="Insert/edit link"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-link"></i></button></div><div id="mceu_51" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_51" role="button" aria-label="Remove link"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-unlink"></i></button></div><div id="mceu_52" class="mce-widget mce-btn mce-last" tabindex="-1" aria-labelledby="mceu_52" role="button" aria-label="Fullscreen"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-fullscreen"></i></button></div></div></div></div></div></div></div><div id="mceu_57" class="mce-edit-area mce-container mce-panel mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><iframe id="im_description3_ifr" frameborder="0" allowtransparency="true" title="Rich Text Area. Press Alt-Shift-H for help" src='javascript:""' style="width: 100%; height: 115px; display: block;"></iframe></div><div id="mceu_58" class="mce-statusbar mce-container mce-panel mce-stack-layout-item mce-last" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><div id="mceu_58-body" class="mce-container-body mce-flow-layout"><div id="mceu_59" class="mce-path mce-flow-layout-item mce-first"><div role="button" class="mce-path-item mce-last" data-index="0" tabindex="-1" id="mceu_59-0" aria-level="0">p</div></div><div id="mceu_60" class="mce-flow-layout-item mce-last mce-resizehandle"><i class="mce-ico mce-i-resize"></i></div></div></div></div></div><textarea class="wp-editor-area" rows="5" tabindex="1" autocomplete="off" cols="40" name="im_description3" id="im_description3" aria-hidden="true" style="display: none;">We are looking for people to volunteer and help in this year's convention. If you are a motivated, upbeat individual who is flexible and wants to meet a lot of new people then volunteering is right for you!</textarea></div>
+                            </div>
+
+                        </div>
+                        <div class="link-block">
+                            <label for="sl_url3">URL:</label>
+                            <input class="text_area url-input" type="text" id="sl_url3" name="sl_url3" value="http://animemilwaukee.org/register/">
+                            <label class="long" for="sl_link_target3">Open in new tab</label>
+                            <input type="hidden" name="sl_link_target3" value="">
+                            <input class="link_target" type="checkbox" id="sl_link_target3" name="sl_link_target3">
+
+                            <!--<input type="checkbox" name="pause_on_hover" id="pause_on_hover"  checked="checked"  class="link_target"/>-->
+                        </div>
+                        <div class="remove-image-container">
+                            <a class="button remove-image" href="admin.php?page=sliders_huge_it_slider&amp;id=1&amp;task=apply&amp;removeslide=3">Remove Image</a>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </li>
+                <li class="has-background ui-sortable-handle">
+                    <input class="order_by" type="hidden" name="order_by_6" value="2">
+                    <div class="image-container">
+                        <img src="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/23212413/Lovshine2.jpg">
+                        <div>
+                            <script>
+                                jQuery(document).ready(function($){
+                                    var _custom_media = true,
+                                            _orig_send_attachment = wp.media.editor.send.attachment;
+
+                                    jQuery('.huge-it-editnewuploader .button6').click(function(e) {
+                                        var send_attachment_bkp = wp.media.editor.send.attachment;
+                                        var button = jQuery(this);
+                                        var id = button.attr('id').replace('_button', '');
+                                        _custom_media = true;
+                                        wp.media.editor.send.attachment = function(props, attachment){
+                                            if ( _custom_media ) {
+                                                jQuery("#"+id).val(attachment.url);
+                                                jQuery("#save-buttom").click();
+                                            } else {
+                                                return _orig_send_attachment.apply( this, [props, attachment] );
+                                            };
+                                        }
+
+                                        wp.media.editor.open(button);
+                                        return false;
+                                    });
+
+                                    jQuery('.add_media').on('click', function(){
+                                        _custom_media = false;
+                                    });
+                                    /* jQuery(".huge-it-editnewuploader").click(function() {
+                                    });
+                                        jQuery(".wp-media-buttons-icon").click(function() {
+                                        jQuery(".media-menu-item").css("display","none");
+                                        jQuery(".media-menu-item:first").css("display","block");
+                                        jQuery(".separator").next().css("display","block");
+                                        jQuery('.attachment-filters').val('image').trigger('change');
+                                        jQuery(".attachment-filters").css("display","none");
+
+                                    });*/
+                                });
+                            </script>
+                            <input type="hidden" name="imagess6" id="_unique_name6" value="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/23212413/Lovshine2.jpg">
+                            <span class="wp-media-buttons-icon"></span>
+                            <div class="huge-it-editnewuploader uploader button6 add-new-image">
+                                <input type="button" class="button6 wp-media-buttons-icon editimageicon" name="_unique_name_button6" id="_unique_name_button6" value="Edit image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-options">
+                        <div>
+                            <label for="titleimage6">Title:</label>
+                            <input class="text_area" type="text" id="titleimage6" name="titleimage6" value="LOVE ♥ SHINE RAVE">
+                        </div>
+                        <div class="description-block">
+                            <label for="im_description6">Description:</label>
+                            <div id="wp-im_description6-wrap" class="wp-core-ui wp-editor-wrap tmce-active"><div id="wp-im_description6-editor-tools" class="wp-editor-tools hide-if-no-js"><div class="wp-editor-tabs"><button type="button" id="im_description6-tmce" class="wp-switch-editor switch-tmce" data-wp-editor-id="im_description6">Visual</button>
+                                <button type="button" id="im_description6-html" class="wp-switch-editor switch-html" data-wp-editor-id="im_description6">Text</button>
+                            </div>
+                            </div>
+                                <div id="wp-im_description6-editor-container" class="wp-editor-container"><div id="qt_im_description6_toolbar" class="quicktags-toolbar"><input type="button" id="qt_im_description6_strong" class="ed_button button button-small" aria-label="Bold" value="b"><input type="button" id="qt_im_description6_em" class="ed_button button button-small" aria-label="Italic" value="i"><input type="button" id="qt_im_description6_link" class="ed_button button button-small" aria-label="Insert link" value="link"><input type="button" id="qt_im_description6_block" class="ed_button button button-small" aria-label="Blockquote" value="b-quote"><input type="button" id="qt_im_description6_del" class="ed_button button button-small" aria-label="Deleted text (strikethrough)" value="del"><input type="button" id="qt_im_description6_ins" class="ed_button button button-small" aria-label="Inserted text" value="ins"><input type="button" id="qt_im_description6_img" class="ed_button button button-small" aria-label="Insert image" value="img"><input type="button" id="qt_im_description6_ul" class="ed_button button button-small" aria-label="Bulleted list" value="ul"><input type="button" id="qt_im_description6_ol" class="ed_button button button-small" aria-label="Numbered list" value="ol"><input type="button" id="qt_im_description6_li" class="ed_button button button-small" aria-label="List item" value="li"><input type="button" id="qt_im_description6_code" class="ed_button button button-small" aria-label="Code" value="code"><input type="button" id="qt_im_description6_more" class="ed_button button button-small" aria-label="Insert Read More tag" value="more"><input type="button" id="qt_im_description6_close" class="ed_button button button-small" title="Close all open tags" value="close tags"></div><div id="mceu_91" class="mce-tinymce mce-container mce-panel" hidefocus="1" tabindex="-1" role="application" style="visibility: hidden; border-width: 1px;"><div id="mceu_91-body" class="mce-container-body mce-stack-layout"><div id="mceu_92" class="mce-toolbar-grp mce-container mce-panel mce-stack-layout-item mce-first" hidefocus="1" tabindex="-1" role="group"><div id="mceu_92-body" class="mce-container-body mce-stack-layout"><div id="mceu_93" class="mce-container mce-toolbar mce-stack-layout-item mce-first mce-last" role="toolbar"><div id="mceu_93-body" class="mce-container-body mce-flow-layout"><div id="mceu_94" class="mce-container mce-flow-layout-item mce-first mce-last mce-btn-group" role="group"><div id="mceu_94-body"><div id="mceu_76" class="mce-widget mce-btn mce-first" tabindex="-1" aria-labelledby="mceu_76" role="button" aria-label="Bold"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bold"></i></button></div><div id="mceu_77" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_77" role="button" aria-label="Italic"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-italic"></i></button></div><div id="mceu_78" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_78" role="button" aria-label="Underline"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-underline"></i></button></div><div id="mceu_79" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_79" role="button" aria-label="Blockquote"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-blockquote"></i></button></div><div id="mceu_80" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_80" role="button" aria-label="Strikethrough"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-strikethrough"></i></button></div><div id="mceu_81" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_81" role="button" aria-label="Bullet list"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bullist"></i></button></div><div id="mceu_82" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_82" role="button" aria-label="Numbered list"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-numlist"></i></button></div><div id="mceu_83" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_83" role="button" aria-label="Align left"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignleft"></i></button></div><div id="mceu_84" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_84" role="button" aria-label="Align center"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-aligncenter"></i></button></div><div id="mceu_85" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_85" role="button" aria-label="Align right"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignright"></i></button></div><div id="mceu_86" class="mce-widget mce-btn mce-disabled" tabindex="-1" aria-labelledby="mceu_86" role="button" aria-label="Undo" aria-disabled="true"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-undo"></i></button></div><div id="mceu_87" class="mce-widget mce-btn mce-disabled" tabindex="-1" aria-labelledby="mceu_87" role="button" aria-label="Redo" aria-disabled="true"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-redo"></i></button></div><div id="mceu_88" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_88" role="button" aria-label="Insert/edit link"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-link"></i></button></div><div id="mceu_89" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_89" role="button" aria-label="Remove link"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-unlink"></i></button></div><div id="mceu_90" class="mce-widget mce-btn mce-last" tabindex="-1" aria-labelledby="mceu_90" role="button" aria-label="Fullscreen"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-fullscreen"></i></button></div></div></div></div></div></div></div><div id="mceu_95" class="mce-edit-area mce-container mce-panel mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><iframe id="im_description6_ifr" frameborder="0" allowtransparency="true" title="Rich Text Area. Press Alt-Shift-H for help" src='javascript:""' style="width: 100%; height: 115px; display: block;"></iframe></div><div id="mceu_96" class="mce-statusbar mce-container mce-panel mce-stack-layout-item mce-last" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><div id="mceu_96-body" class="mce-container-body mce-flow-layout"><div id="mceu_97" class="mce-path mce-flow-layout-item mce-first"><div role="button" class="mce-path-item mce-last" data-index="0" tabindex="-1" id="mceu_97-0" aria-level="0">p</div></div><div id="mceu_98" class="mce-flow-layout-item mce-last mce-resizehandle"><i class="mce-ico mce-i-resize"></i></div></div></div></div></div><textarea class="wp-editor-area" rows="5" tabindex="1" autocomplete="off" cols="40" name="im_description6" id="im_description6" aria-hidden="true" style="display: none;">The focus of LOVE ♥ SHINE is to bring you a unique experience in the underground culture of electronic dance music by focusing on DJs and producers who are part of the fandoms found at Anime Milwaukee.</textarea></div>
+                            </div>
+
+                        </div>
+                        <div class="link-block">
+                            <label for="sl_url6">URL:</label>
+                            <input class="text_area url-input" type="text" id="sl_url6" name="sl_url6" value="http://animemilwaukee.org/programming/love-♥-shine-rave/">
+                            <label class="long" for="sl_link_target6">Open in new tab</label>
+                            <input type="hidden" name="sl_link_target6" value="">
+                            <input class="link_target" type="checkbox" id="sl_link_target6" name="sl_link_target6">
+
+                            <!--<input type="checkbox" name="pause_on_hover" id="pause_on_hover"  checked="checked"  class="link_target"/>-->
+                        </div>
+                        <div class="remove-image-container">
+                            <a class="button remove-image" href="admin.php?page=sliders_huge_it_slider&amp;id=1&amp;task=apply&amp;removeslide=6">Remove Image</a>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </li>
+                <li class="ui-sortable-handle">
+                    <input class="order_by" type="hidden" name="order_by_2" value="3">
+                    <div class="image-container">
+                        <img src="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/14023526/Colin-AMKE15-32.jpg">
+                        <div>
+                            <script>
+                                jQuery(document).ready(function($){
+                                    var _custom_media = true,
+                                            _orig_send_attachment = wp.media.editor.send.attachment;
+
+                                    jQuery('.huge-it-editnewuploader .button2').click(function(e) {
+                                        var send_attachment_bkp = wp.media.editor.send.attachment;
+                                        var button = jQuery(this);
+                                        var id = button.attr('id').replace('_button', '');
+                                        _custom_media = true;
+                                        wp.media.editor.send.attachment = function(props, attachment){
+                                            if ( _custom_media ) {
+                                                jQuery("#"+id).val(attachment.url);
+                                                jQuery("#save-buttom").click();
+                                            } else {
+                                                return _orig_send_attachment.apply( this, [props, attachment] );
+                                            };
+                                        }
+
+                                        wp.media.editor.open(button);
+                                        return false;
+                                    });
+
+                                    jQuery('.add_media').on('click', function(){
+                                        _custom_media = false;
+                                    });
+                                    /* jQuery(".huge-it-editnewuploader").click(function() {
+                                    });
+                                        jQuery(".wp-media-buttons-icon").click(function() {
+                                        jQuery(".media-menu-item").css("display","none");
+                                        jQuery(".media-menu-item:first").css("display","block");
+                                        jQuery(".separator").next().css("display","block");
+                                        jQuery('.attachment-filters').val('image').trigger('change');
+                                        jQuery(".attachment-filters").css("display","none");
+
+                                    });*/
+                                });
+                            </script>
+                            <input type="hidden" name="imagess2" id="_unique_name2" value="http://cdn.animemilwaukee.org/wp-content/uploads/2015/08/14023526/Colin-AMKE15-32.jpg">
+                            <span class="wp-media-buttons-icon"></span>
+                            <div class="huge-it-editnewuploader uploader button2 add-new-image">
+                                <input type="button" class="button2 wp-media-buttons-icon editimageicon" name="_unique_name_button2" id="_unique_name_button2" value="Edit image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-options">
+                        <div>
+                            <label for="titleimage2">Title:</label>
+                            <input class="text_area" type="text" id="titleimage2" name="titleimage2" value="Cosplay Combat Chess">
+                        </div>
+                        <div class="description-block">
+                            <label for="im_description2">Description:</label>
+                            <div id="wp-im_description2-wrap" class="wp-core-ui wp-editor-wrap tmce-active"><div id="wp-im_description2-editor-tools" class="wp-editor-tools hide-if-no-js"><div class="wp-editor-tabs"><button type="button" id="im_description2-tmce" class="wp-switch-editor switch-tmce" data-wp-editor-id="im_description2">Visual</button>
+                                <button type="button" id="im_description2-html" class="wp-switch-editor switch-html" data-wp-editor-id="im_description2">Text</button>
+                            </div>
+                            </div>
+                                <div id="wp-im_description2-editor-container" class="wp-editor-container"><div id="qt_im_description2_toolbar" class="quicktags-toolbar"><input type="button" id="qt_im_description2_strong" class="ed_button button button-small" aria-label="Bold" value="b"><input type="button" id="qt_im_description2_em" class="ed_button button button-small" aria-label="Italic" value="i"><input type="button" id="qt_im_description2_link" class="ed_button button button-small" aria-label="Insert link" value="link"><input type="button" id="qt_im_description2_block" class="ed_button button button-small" aria-label="Blockquote" value="b-quote"><input type="button" id="qt_im_description2_del" class="ed_button button button-small" aria-label="Deleted text (strikethrough)" value="del"><input type="button" id="qt_im_description2_ins" class="ed_button button button-small" aria-label="Inserted text" value="ins"><input type="button" id="qt_im_description2_img" class="ed_button button button-small" aria-label="Insert image" value="img"><input type="button" id="qt_im_description2_ul" class="ed_button button button-small" aria-label="Bulleted list" value="ul"><input type="button" id="qt_im_description2_ol" class="ed_button button button-small" aria-label="Numbered list" value="ol"><input type="button" id="qt_im_description2_li" class="ed_button button button-small" aria-label="List item" value="li"><input type="button" id="qt_im_description2_code" class="ed_button button button-small" aria-label="Code" value="code"><input type="button" id="qt_im_description2_more" class="ed_button button button-small" aria-label="Insert Read More tag" value="more"><input type="button" id="qt_im_description2_close" class="ed_button button button-small" title="Close all open tags" value="close tags"></div><div id="mceu_129" class="mce-tinymce mce-container mce-panel" hidefocus="1" tabindex="-1" role="application" style="visibility: hidden; border-width: 1px;"><div id="mceu_129-body" class="mce-container-body mce-stack-layout"><div id="mceu_130" class="mce-toolbar-grp mce-container mce-panel mce-stack-layout-item mce-first" hidefocus="1" tabindex="-1" role="group"><div id="mceu_130-body" class="mce-container-body mce-stack-layout"><div id="mceu_131" class="mce-container mce-toolbar mce-stack-layout-item mce-first mce-last" role="toolbar"><div id="mceu_131-body" class="mce-container-body mce-flow-layout"><div id="mceu_132" class="mce-container mce-flow-layout-item mce-first mce-last mce-btn-group" role="group"><div id="mceu_132-body"><div id="mceu_114" class="mce-widget mce-btn mce-first" tabindex="-1" aria-labelledby="mceu_114" role="button" aria-label="Bold"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bold"></i></button></div><div id="mceu_115" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_115" role="button" aria-label="Italic"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-italic"></i></button></div><div id="mceu_116" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_116" role="button" aria-label="Underline"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-underline"></i></button></div><div id="mceu_117" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_117" role="button" aria-label="Blockquote"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-blockquote"></i></button></div><div id="mceu_118" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_118" role="button" aria-label="Strikethrough"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-strikethrough"></i></button></div><div id="mceu_119" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_119" role="button" aria-label="Bullet list"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bullist"></i></button></div><div id="mceu_120" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_120" role="button" aria-label="Numbered list"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-numlist"></i></button></div><div id="mceu_121" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_121" role="button" aria-label="Align left"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignleft"></i></button></div><div id="mceu_122" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_122" role="button" aria-label="Align center"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-aligncenter"></i></button></div><div id="mceu_123" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_123" role="button" aria-label="Align right"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignright"></i></button></div><div id="mceu_124" class="mce-widget mce-btn mce-disabled" tabindex="-1" aria-labelledby="mceu_124" role="button" aria-label="Undo" aria-disabled="true"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-undo"></i></button></div><div id="mceu_125" class="mce-widget mce-btn mce-disabled" tabindex="-1" aria-labelledby="mceu_125" role="button" aria-label="Redo" aria-disabled="true"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-redo"></i></button></div><div id="mceu_126" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_126" role="button" aria-label="Insert/edit link"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-link"></i></button></div><div id="mceu_127" class="mce-widget mce-btn" tabindex="-1" aria-labelledby="mceu_127" role="button" aria-label="Remove link"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-unlink"></i></button></div><div id="mceu_128" class="mce-widget mce-btn mce-last" tabindex="-1" aria-labelledby="mceu_128" role="button" aria-label="Fullscreen"><button role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-fullscreen"></i></button></div></div></div></div></div></div></div><div id="mceu_133" class="mce-edit-area mce-container mce-panel mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><iframe id="im_description2_ifr" frameborder="0" allowtransparency="true" title="Rich Text Area. Press Alt-Shift-H for help" src='javascript:""' style="width: 100%; height: 115px; display: block;"></iframe></div><div id="mceu_134" class="mce-statusbar mce-container mce-panel mce-stack-layout-item mce-last" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><div id="mceu_134-body" class="mce-container-body mce-flow-layout"><div id="mceu_135" class="mce-path mce-flow-layout-item mce-first"><div role="button" class="mce-path-item mce-last" data-index="0" tabindex="-1" id="mceu_135-0" aria-level="0">p</div></div><div id="mceu_136" class="mce-flow-layout-item mce-last mce-resizehandle"><i class="mce-ico mce-i-resize"></i></div></div></div></div></div><textarea class="wp-editor-area" rows="5" tabindex="1" autocomplete="off" cols="40" name="im_description2" id="im_description2" aria-hidden="true" style="display: none;">Anime Milwaukee's exclusive Event.</textarea></div>
+                            </div>
+
+                        </div>
+                        <div class="link-block">
+                            <label for="sl_url2">URL:</label>
+                            <input class="text_area url-input" type="text" id="sl_url2" name="sl_url2" value="http://animemilwaukee.org/programming/cosplay-combat-chess/">
+                            <label class="long" for="sl_link_target2">Open in new tab</label>
+                            <input type="hidden" name="sl_link_target2" value="">
+                            <input class="link_target" type="checkbox" id="sl_link_target2" name="sl_link_target2">
+
+                            <!--<input type="checkbox" name="pause_on_hover" id="pause_on_hover"  checked="checked"  class="link_target"/>-->
+                        </div>
+                        <div class="remove-image-container">
+                            <a class="button remove-image" href="admin.php?page=sliders_huge_it_slider&amp;id=1&amp;task=apply&amp;removeslide=2">Remove Image</a>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div id="postbox-container-1" class="postbox-container">
+        <div id="side-sortables" class="meta-box-sortables ui-sortable">
+            <div id="slider-unique-options" class="postbox">
+                <h3 class="hndle"><span>Current Slider Options</span></h3>
+                <ul id="slider-unique-options-list">
+
+                    <li>
+                        <label for="sl_width">Width</label>
+                        <input type="text" name="sl_width" id="sl_width" value="600" class="text_area">
+                    </li>
+                    <li>
+                        <label for="sl_height">Height</label>
+                        <input type="text" name="sl_height" id="sl_height" value="375" class="text_area">
+                    </li>
+                    <li>
+                        <label for="pause_on_hover">Pause on hover</label>
+                        <input type="hidden" value="off" name="pause_on_hover">
+                        <input type="checkbox" name="pause_on_hover" value="on" id="pause_on_hover" checked="checked">
+                    </li>
+                    <li>
+                        <label for="slider_effects_list">Effects</label>
+                        <select name="slider_effects_list" id="slider_effects_list">
+                            <option value="none">None</option>
+                            <option value="cubeH">Cube Horizontal</option>
+                            <option value="cubeV">Cube Vertical</option>
+                            <option value="fade">Fade</option>
+                            <option value="sliceH">Slice Horizontal</option>
+                            <option value="sliceV">Slice Vertical</option>
+                            <option value="slideH">Slide Horizontal</option>
+                            <option value="slideV">Slide Vertical</option>
+                            <option value="scaleOut">Scale Out</option>
+                            <option value="scaleIn">Scale In</option>
+                            <option value="blockScale">Block Scale</option>
+                            <option value="kaleidoscope">Kaleidoscope</option>
+                            <option value="fan">Fan</option>
+                            <option value="blindH">Blind Horizontal</option>
+                            <option value="blindV">Blind Vertical</option>
+                            <option value="slideCenter">Slide Center</option>
+                            <option selected="" value="random">Random</option>
+                        </select>
+                    </li>
+
+
+                    <li>
+                        <label for="autoplay">Autoplay Slider</label>
+                        <input type="checkbox" name="autoplay" value="on" id="autoplay" checked="checked">
+                    </li>
+                    <li>
+                        <label for="sl_pausetime">Pause time</label>
+                        <input type="text" name="sl_pausetime" id="sl_pausetime" value="3000" class="text_area">
+                    </li>
+                    <li>
+                        <label for="sl_changespeed">Change speed</label>
+                        <input type="text" name="sl_changespeed" id="sl_changespeed" value="800" class="text_area">
+                    </li>
+                    <li>
+                        <label for="slider_position">Slider Position</label>
+                        <select name="sl_position" id="slider_position">
+                            <option value="left">Left</option>
+                            <option value="right">Right</option>
+                            <option selected="" value="center">Center</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="sl_loading_icon">Loading icon</label>
+                        <select id="sl_loading_icon" name="sl_loading_icon">
+                            <option value="on">On</option>
+                            <option selected="" value="off">Off</option>
+                        </select>
+                    </li>
+
+                    <li>
+                        <label for="fancybox">Use Fancybox?</label>
+                        <input type="checkbox" name="fancybox" value="on" id="fancybox">
+                    </li>
+                    <li>
+                        <label for="fancybox">Use Fancybox Defaults?</label>
+                        <input type="checkbox" name="default_fancybox" value="on" id="default_fancybox" checked="checked">
+                    </li>
+                </ul>
+                <div id="major-publishing-actions">
+                    <div id="publishing-action">
+                        <input type="button" onclick="submitbutton('apply')" value="Save Slider" id="save-buttom" class="button button-primary button-large">
+                    </div>
+                    <div class="clear"></div>
+                    <!--<input type="button" onclick="window.location.href='admin.php?page=sliders_huge_it_slider'" value="Cancel" class="button-secondary action">-->
+                </div>
+            </div>
+        </div>
+        <div id="slider-shortcode-box" class="postbox shortcode ms-toggle">
+            <h3 class="hndle"><span>Usage</span></h3>
+            <div class="inside">
+                <ul>
+                    <li rel="tab-1" class="selected">
+                        <h4>Shortcode</h4>
+                        <p>Copy &amp; paste the shortcode directly into any WordPress post or page.</p>
+                        <textarea class="full" readonly="readonly">[huge_it_slider id="1"]</textarea>
+                    </li>
+                    <li rel="tab-2">
+                        <h4>Template Include</h4>
+                        <p>Copy &amp; paste this code into a template file to include the slideshow within your theme.</p>
+                        <textarea class="full" readonly="readonly">&lt;?php echo do_shortcode("[huge_it_slider id='1']"); ?&gt;</textarea>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</form>
