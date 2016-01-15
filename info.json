@@ -44,13 +44,15 @@
               "default" : true
             },
             {
-              "name" : "Add Slider",
+              "name" : "Edit Slider",
               "className" : "\\Admin\\Edit",
+              "sidebar" : true,
               "actions" : ["edit"]
             },
             {
-              "name" : "Create Slider",
+              "name" : "Add New Slider",
               "className" : "\\Admin\\Create",
+              "sidebar" : true,
               "actions" : ["create"]
             },
             {
