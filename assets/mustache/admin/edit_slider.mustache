@@ -79,77 +79,25 @@
                     <ul id="slider-unique-options-list">
 
                         <li>
-                            <label for="sl_width">Width</label>
-                            <input type="text" name="sl_width" id="sl_width" value="600" class="text_area">
+                            <label for="auto_play">Autoplay Slider</label>
+                            <input type="checkbox" name="auto_play" id="auto_play" {{#auto_play}}checked{{/auto_play}}>
                         </li>
                         <li>
-                            <label for="sl_height">Height</label>
-                            <input type="text" name="sl_height" id="sl_height" value="375" class="text_area">
+                            <label for="auto_play_pause_speed">Pause time</label>
+                            <input type="text" name="auto_play_pause_speed" id="auto_play_pause_speed" value="{{auto_play_pause_speed}}" class="text_area">
                         </li>
-                        <li>
-                            <label for="pause_on_hover">Pause on hover</label>
-                            <input type="hidden" value="off" name="pause_on_hover">
-                            <input type="checkbox" name="pause_on_hover" value="on" id="pause_on_hover" checked="checked">
-                        </li>
-                        <li>
-                            <label for="slider_effects_list">Effects</label>
-                            <select name="slider_effects_list" id="slider_effects_list">
-                                <option value="none">None</option>
-                                <option value="cubeH">Cube Horizontal</option>
-                                <option value="cubeV">Cube Vertical</option>
-                                <option value="fade">Fade</option>
-                                <option value="sliceH">Slice Horizontal</option>
-                                <option value="sliceV">Slice Vertical</option>
-                                <option value="slideH">Slide Horizontal</option>
-                                <option value="slideV">Slide Vertical</option>
-                                <option value="scaleOut">Scale Out</option>
-                                <option value="scaleIn">Scale In</option>
-                                <option value="blockScale">Block Scale</option>
-                                <option value="kaleidoscope">Kaleidoscope</option>
-                                <option value="fan">Fan</option>
-                                <option value="blindH">Blind Horizontal</option>
-                                <option value="blindV">Blind Vertical</option>
-                                <option value="slideCenter">Slide Center</option>
-                                <option selected="" value="random">Random</option>
-                            </select>
-                        </li>
-
+                        <!--<li>-->
+                            <!--<label for="sl_changespeed">Change speed</label>-->
+                            <!--<input type="text" name="sl_changespeed" id="sl_changespeed" value="800" class="text_area">-->
+                        <!--</li>-->
 
                         <li>
-                            <label for="autoplay">Autoplay Slider</label>
-                            <input type="checkbox" name="autoplay" value="on" id="autoplay" checked="checked">
+                            <label for="light_box">Use Light Box?</label>
+                            <input type="checkbox" name="light_box" value="on" id="light_box" {{#light_box}}checked{{/light_box}} >
                         </li>
                         <li>
-                            <label for="sl_pausetime">Pause time</label>
-                            <input type="text" name="sl_pausetime" id="sl_pausetime" value="3000" class="text_area">
-                        </li>
-                        <li>
-                            <label for="sl_changespeed">Change speed</label>
-                            <input type="text" name="sl_changespeed" id="sl_changespeed" value="800" class="text_area">
-                        </li>
-                        <li>
-                            <label for="slider_position">Slider Position</label>
-                            <select name="sl_position" id="slider_position">
-                                <option value="left">Left</option>
-                                <option value="right">Right</option>
-                                <option selected="" value="center">Center</option>
-                            </select>
-                        </li>
-                        <li>
-                            <label for="sl_loading_icon">Loading icon</label>
-                            <select id="sl_loading_icon" name="sl_loading_icon">
-                                <option value="on">On</option>
-                                <option selected="" value="off">Off</option>
-                            </select>
-                        </li>
-
-                        <li>
-                            <label for="fancybox">Use Fancybox?</label>
-                            <input type="checkbox" name="fancybox" value="on" id="fancybox">
-                        </li>
-                        <li>
-                            <label for="fancybox">Use Fancybox Defaults?</label>
-                            <input type="checkbox" name="default_fancybox" value="on" id="default_fancybox" checked="checked">
+                            <label for="popup_only">Only Use Light Box?</label>
+                            <input type="checkbox" name="popup_only" value="on" id="popup_only" {{#popup_only}}checked{{/popup_only}}>
                         </li>
                     </ul>
                     <div id="major-publishing-actions">
