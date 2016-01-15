@@ -46,7 +46,6 @@
             {
               "name" : "Edit Slider",
               "className" : "\\Admin\\Edit",
-              "sidebar" : true,
               "actions" : ["edit"]
             },
             {

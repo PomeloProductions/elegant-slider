@@ -10,6 +10,7 @@ namespace ElegantSlider\Admin;
 
 
 use WordWrap\Admin\TaskController;
+use WordWrap\Assets\Template\Mustache\MustacheTemplate;
 
 class Edit extends TaskController {
 
@@ -26,6 +27,9 @@ class Edit extends TaskController {
      */
     protected function renderMainContent() {
 
+        $template = new MustacheTemplate($this->lifeCycle, "admin/edit_slider");
+
+        return $template->export();
     }
 
     /**
