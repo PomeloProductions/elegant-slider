@@ -60,9 +60,26 @@ class Slider extends BaseModel{
      */
     public $images = [];
     /**
+     * @var int the total amount of images in the slider
+     */
+    public $count = 0;
+    /**
      * @var DateTime the date that this slider was deleted
      */
     public $deleted_at;
+
+    /**
+     * Constructor.
+     *
+     * @param array $properties
+     */
+    public function __construct(array $properties = array()) {
+        parent::__construct($properties, ["deleted_at"]);
+
+        $this->loadImages();
+
+        $this->count = count($this->images);
+    }
 
     /**
      * Overwrite this in your concrete class. Returns the table name used to
