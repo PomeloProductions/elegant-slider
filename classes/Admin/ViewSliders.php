@@ -8,8 +8,8 @@
  */
 namespace ElegantSlider\Admin;
 
+use ElegantSlider\Model\Slider;
 use WordWrap\Admin\TaskController;
-use WordWrap\Assets\Template\Mustache\MustacheFactory;
 use WordWrap\Assets\Template\Mustache\MustacheTemplate;
 
 class ViewSliders extends TaskController {
@@ -26,7 +26,10 @@ class ViewSliders extends TaskController {
      * override to render the main page
      */
     protected function renderMainContent() {
-        $template = new MustacheTemplate($this->lifeCycle, "admin/list_sliders");
+
+        $sliders = ["sliders" => Slider::all()];
+
+        $template = new MustacheTemplate($this->lifeCycle, "admin/list_sliders", $sliders);
 
         return $template->export();
     }
