@@ -1,61 +1,6 @@
 /*#########SLIDERS LIST PAGE###########*/
 #admin-sliders-list tr:nth-child(odd) {background:#f9f9f9;}
 
-/*SLIDERS TABS*/
-#sliders-list  {
-    width:100%;
-    margin:0px 0px 20px 0px;
-    border-bottom:1px solid #ccc;
-    height:30px;
-}
-
-#sliders-list  li {
-    position:relative;
-    display:block;
-    float:left;
-    height:29px;
-    margin:0px 5px 0px 0px;
-    padding:0px 0px 0px 0px;
-    border:1px solid #ccc;
-}
-
-#sliders-list  li.active {
-    border-bottom: 1px solid #f1f1f1;
-    padding-right:16px;
-    background-position:right center;
-    background-repeat:no-repeat;
-}
-
-
-#sliders-list  li a,#sliders-list  li a:link,#sliders-list  li a:visited {
-    display:block;
-    text-decoration:none;
-    padding:5px 10px 5px 10px;
-    background: #ebebeb;
-    color: #777;
-    background:#fff;
-    outline:none;
-}
-
-#sliders-list  li a:hover,#sliders-list  li a:focus,#sliders-list  li a:active {
-    color:#444;
-    background:#f1f1f1;
-}
-
-#sliders-list  li.add-new a:hover,#sliders-list  li.add-new a:focus,#sliders-list  li.add-new a:active {
-    cursor:pointer;
-}
-
-#sliders-list  li.active input {
-    margin:2px 0px 0px 0px;
-    background:#f1f1f1;
-    outline:none;
-    width:auto;
-    box-shadow:none;
-    border:0px;
-    width: 90px;
-}
-
 
 
 /*SIDEBAR*/
