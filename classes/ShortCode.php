@@ -72,7 +72,7 @@ class ShortCode extends ShortCodeScriptLoader{
                 $js->setTemplateVar('auto_play', $slider->auto_play ? 'true' : 'false');
                 $js->setTemplateVar('fluid_touch', $slider->fluid_touch ? 'true' : 'false');
                 $js->setTemplateVar('pager', $slider->pager ? 'true' : 'false');
-                $js->setTemplateVar('auto_play_speed', $slider->auto_play_speed);
+                $js->setTemplateVar('auto_play_speed', $slider->auto_play_pause_speed);
                 $js->setTemplateVar("start_slide", $slider->start_slide);
 
                 if ($slider->light_box)

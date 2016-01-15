@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
         'lockToSlide' : false,
         'auto' : {{auto_play}},
         'autoHover' : true,
-        'pause' : {{auto_play_speed}},
+        'pause' : {{auto_play_pause_speed}},
         'touchEnabled' : {{fluid_touch}},
         'oneToOneTouch' : {{fluid_touch}},
         'pager' : {{pager}},

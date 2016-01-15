@@ -30,7 +30,7 @@ class Slider extends BaseModel{
     /**
      * @var int speed of the auto play
      */
-    public $auto_play_speed = 4000;
+    public $auto_play_pause_speed = 4000;
     /**
      * @var int the slide that we want to start on
      */
@@ -138,7 +138,7 @@ class Slider extends BaseModel{
             "pager" => "TINYINT(4) DEFAULT '0'",
             "light_box" => "TINYINT(4) DEFAULT '0'",
             "start_slide" => "INTEGER(11) DEFAULT '0'",
-            "auto_play_speed" => "INTEGER(11) DEFAULT '4000'",
+            "auto_play_pause_speed" => "INTEGER(11) DEFAULT '4000'",
             "popup_only" => "INTEGER(11) DEFAULT '0'",
             "popup_link_text" => "TEXT",
             "deleted_at" => "DATETIME"
