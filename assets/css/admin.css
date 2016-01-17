@@ -118,7 +118,9 @@
     padding:10px 5px 10px 5px;
 }
 
-#images-list li.has-background {background-color:#f9f9f9;}
+#images-list li:nth-child(odd) {
+    background-color:#f9f9f9;
+}
 
 #images-list li:hover {
     cursor:move;
