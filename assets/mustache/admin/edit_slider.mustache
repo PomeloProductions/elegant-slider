@@ -24,13 +24,13 @@
                 <ul id="images-list" class="ui-sortable">
                     {{#images}}
                         <li class="has-background ui-sortable-handle">
-                            <input class="order_by" type="hidden" name="id[]" value="">
+                            <input type="hidden" name="order[]" value="{{id}}">
                             <div class="image-container">
                                 <img src="{{image_url}}">
                                 <div>
-                                    <input type="hidden" name="image_url[]" value="{{image_url}}">
+                                    <input type="hidden" name="image_url-{{id}}" value="{{image_url}}">
                                     <span class="wp-media-buttons-icon"></span>
-                                    <div class="huge-it-editnewuploader uploader button1 add-new-image">
+                                    <div class="uploader add-new-image">
                                         <input type="button" class="button1 wp-media-buttons-icon editimageicon" name="_unique_name_button1" value="Edit image">
                                     </div>
                                 </div>
@@ -40,15 +40,14 @@
                                 <div>{{{description_editor}}}</div>
                                 <div class="link-block">
                                     <label for="sl_url1">URL:</label>
-                                    <input class="text_area url-input" type="text" id="sl_url1" name="sl_url1" value="http://animemilwaukee.org/programming/masquerade">
+                                    <input class="text_area url-input" type="text" id="image_link" name="image_link-{{id}}" value="{{image_link}}">
                                     <label class="long" for="sl_link_target1">Open in new tab</label>
-                                    <input type="hidden" name="sl_link_target1" value="">
                                     <input class="link_target" type="checkbox" id="sl_link_target1" name="sl_link_target1">
 
                                     <!--<input type="checkbox" name="pause_on_hover" id="pause_on_hover"  checked="checked"  class="link_target"/>-->
                                 </div>
                                 <div class="remove-image-container">
-                                    <a class="button remove-image" href="admin.php?page=sliders_huge_it_slider&amp;id=1&amp;task=apply&amp;removeslide=1">Remove Image</a>
+                                    <a class="button remove-image" href="admin.php?page=elegant_slider&task=delete_imageid={{id}}">Remove Image</a>
                                 </div>
                             </div>
 
