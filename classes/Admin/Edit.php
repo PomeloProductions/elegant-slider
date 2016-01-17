@@ -9,6 +9,7 @@
 namespace ElegantSlider\Admin;
 
 
+use ElegantSlider\Model\Image;
 use ElegantSlider\Model\Slider;
 use WordWrap\Admin\TaskController;
 use WordWrap\Assets\Template\Mustache\MustacheTemplate;
@@ -25,11 +26,56 @@ class Edit extends TaskController {
      * @param $action string the action the user is trying to complete
      */
     public function processRequest($action = null) {
+
+
         if (isset($_GET["id"]))
             $this->slider = Slider::find_one($_GET["id"]);
 
+        if (isset($action) && $action == "edit") {
+
+            $this->createImages();
+        }
+
         if ($this->slider == null)
             wp_redirect("Location: admin.php?page=elegant_slider&task=view_sliders");
+    }
+
+    /**
+     * will delete old images and create new ones
+     */
+    protected function createImages() {
+
+        foreach ($this->slider->getImages() as $image) {
+            $image->delete();
+        }
+
+        $descriptions = [];
+        $linkTargets = [];
+
+        foreach($_POST as $key => $value) {
+            if (strstr($key, "description"))
+                $descriptions[] = $value;
+            if (strstr($key, "link_target"))
+                $linkTargets[] = $value;
+        }
+
+        $newImages = [];
+
+        for ($i = 0; $i < count($descriptions); $i++) {
+            $image = Image::create([
+                "slider_id" => $this->slider->id,
+                "name" => $_POST["name"][$i],
+                "description" => $descriptions[$i],
+                "order" => $i + 1,
+                "image_url" => $_POST["image_url"][$i],
+                "image_link" => $_POST["image_link"][$i],
+                "image_link_new_window" => $linkTargets[$i] == "on" ? 1 : 0
+            ]);
+            $image->save();
+
+            $newImages[] = $image;
+        }
+        $this->slider->images = $newImages;
     }
 
     /**

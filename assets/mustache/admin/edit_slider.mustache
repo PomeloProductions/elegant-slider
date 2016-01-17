@@ -10,7 +10,6 @@
             <div id="post-body">
                 <div id="post-body-heading">
                     <h3>Slides</h3>
-                    <input type="hidden" name="imagess" id="_unique_name">
                     <span class="wp-media-buttons-icon"></span>
                     <div class="huge-it-newuploader uploader button button-primary add-new-image">
                         <input type="button" class="button wp-media-buttons-icon" name="_unique_name_button" id="_unique_name_button" value="Add Image Slide">
@@ -37,9 +36,10 @@
                                 <div>{{{description_editor}}}</div>
                                 <div class="link-block">
                                     <label for="image_link-{{id}}">URL:</label>
-                                    <input class="text_area url-input" type="text" id="image_link-{{id}}" name="image_link-{{id}}" value="{{image_link}}">
+                                    <input class="text_area url-input" type="text" id="image_link-{{id}}" name="image_link[]" value="{{image_link}}">
                                     <label class="long" for="link_target-{{id}}">Open in new tab</label>
-                                    <input class="link_target" type="checkbox" id="link_target-{{id}}" name="link_target-{{id}}" value="_blank">
+                                    <input class="link_target" type="hidden" name="link_target-{{id}}" value="off">
+                                    <input class="link_target" type="checkbox" id="link_target-{{id}}" name="link_target-{{id}}" {{#image_link_new_window}}checked{{/image_link_new_window}}>
 
                                     <!--<input type="checkbox" name="pause_on_hover" id="pause_on_hover"  checked="checked"  class="link_target"/>-->
                                 </div>

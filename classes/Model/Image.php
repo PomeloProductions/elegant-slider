@@ -93,6 +93,11 @@ class Image extends BaseModel{
         $this->description = addslashes($this->description);
     }
 
+    public function delete() {
+        $this->deleted_at = new DateTime();
+        $this->save();
+    }
+
     /**
      * gets this ready to be edited
      */
