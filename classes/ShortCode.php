@@ -112,7 +112,7 @@ class ShortCode extends ShortCodeScriptLoader{
 
             if($image->image_link) {
                 $imageView->setTemplateVar("image_link", $image->image_link);
-                $imageView->setTemplateVar("image_link_target", $image->image_link_target);
+                $imageView->setTemplateVar("image_link_target", $image->image_link_new_window ? "_blank" : "_self");
             }
 
             $sliderView->addChildView("image", $imageView);

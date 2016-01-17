@@ -29,13 +29,16 @@
                                 </div>
                             </div>
                             <div class="image-options">
-                                <div>{{{name_editor}}}</div>
+                                <div>
+                                    <label for="name-{{id}}">Title:</label>
+                                    <input class="text_area" type="text" id="name-{{id}}" name="name-{{id}}" value="{{name}}">
+                                </div>
                                 <div>{{{description_editor}}}</div>
                                 <div class="link-block">
-                                    <label for="sl_url1">URL:</label>
-                                    <input class="text_area url-input" type="text" id="image_link" name="image_link-{{id}}" value="{{image_link}}">
-                                    <label class="long" for="sl_link_target1">Open in new tab</label>
-                                    <input class="link_target" type="checkbox" id="sl_link_target1" name="sl_link_target1">
+                                    <label for="image_link-{{id}}">URL:</label>
+                                    <input class="text_area url-input" type="text" id="image_link-{{id}}" name="image_link-{{id}}" value="{{image_link}}">
+                                    <label class="long" for="link_target-{{id}}">Open in new tab</label>
+                                    <input class="link_target" type="checkbox" id="link_target-{{id}}" name="link_target-{{id}}" value="_blank">
 
                                     <!--<input type="checkbox" name="pause_on_hover" id="pause_on_hover"  checked="checked"  class="link_target"/>-->
                                 </div>

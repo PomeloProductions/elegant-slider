@@ -24,10 +24,6 @@ class Image extends BaseModel{
      */
     public $name;
     /**
-     * The contents of the editor for the name in the admin
-     */
-    public $name_editor;
-    /**
      * @var string the description of the image
      */
     public $description;
@@ -48,9 +44,9 @@ class Image extends BaseModel{
      */
     public $image_link;
     /**
-     * @var string in correspondence with the previous variable this will be '_blank' or '_self' defautls to '_self'
+     * @var bool whether or not we should open in link in a new window
      */
-    public $image_link_target = '_self';
+    public $image_link_new_window = false;
     /**
      * @var int the id of this image's slider
      */
@@ -102,12 +98,8 @@ class Image extends BaseModel{
      */
     public function prepareEdit($lifeCycle) {
 
-        $editor = new Editor($lifeCycle, "name-" . $this->id, $this->name, "Image Name");
-        $editor->setHeight(100);
-        $this->name_editor = $editor->export();
-
         $editor = new Editor($lifeCycle, "description-" . $this->id, $this->description, "Image Description");
-        $editor->setHeight(200);
+        $editor->setHeight(100);
         $this->description_editor = $editor->export();
     }
 
@@ -144,7 +136,7 @@ class Image extends BaseModel{
             "order" => "INTEGER(11)",
             "image_url" => "TEXT",
             "image_link" => "VARCHAR(255)",
-            "image_link_target" => "VARCHAR(20) NOT NULL DEFAULT _self",
+            "image_link_new_window" => "INTEGER(11) DEFAULT 0",
             "deleted_at" => "DATETIME"
         ];
     }
