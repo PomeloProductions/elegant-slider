@@ -68,31 +68,6 @@
     margin-right: 0px !important;
 }
 
-#post-body-heading .button.add-post-slide .wp-media-buttons-icon {
-    background: url('../../../../wp-admin/images/post-formats.png') left top no-repeat;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    vertical-align: text-top;
-    margin: 2px 7px 0px 0px;
-}
-
-
-#post-body-heading .button.add-video-slide .wp-media-buttons-icon {
-    background: url('../images/video.icon.png') left top  no-repeat;
-    display: inline-block;
-    width: 0px;
-    height: 19px;
-    vertical-align: text-top;
-    color: #fff;
-    border: none;
-    padding-left: 22px;
-    background-position: 0px;
-    margin-right: 0px !important;
-}
-
-
-
 
 #post-body-footer {
     padding:5px 10px 5px 10px;
@@ -124,9 +99,6 @@
 
 #images-list li:hover {
     cursor:move;
-    background-image:url(../images/dragable.gif);
-    background-position:right top;
-    background-repeat:repeat-y;
 }
 
 #images-list li.ui-sortable-helper {
@@ -156,10 +128,6 @@
     height:100%;
 }
 
-#images-list  .play-icon.youtube {background:url(../images/play.youtube.png) center center no-repeat;}
-
-#images-list  .play-icon.vimeo {background:url(../images/play.vimeo.png) center center no-repeat;}
-
 
 
 #images-list .image-options {
@@ -179,7 +147,7 @@
 #images-list .image-options label {
     display: inline-block;
     float:left;
-    width: 100px;
+    width: 120px;
     padding: 3px 0px 0px 10px;
     vertical-align: middle;
 }
@@ -381,7 +349,6 @@
     top:-10px;
     left:50%;
     margin-left:-5px;
-    background:url(../images/help.box.pnt.gif) left top no-repeat;
 }
 
 .options-block  > div  .help-block p {
@@ -564,14 +531,6 @@
     border:1px solid #999;
 }
 
-#huge_it_slider_add_posts_wrap .view-type-block a.list {
-    background:url(../images/view_list.png) center center no-repeat;
-}
-
-#huge_it_slider_add_posts_wrap .view-type-block a.thumbs {
-    background:url(../images/view_thumbs.png) center center no-repeat;
-}
-
 #huge-it-posts-list {
     position:relative;
     display:table;
@@ -730,17 +689,15 @@
 }
 
 .editimageicon {
-    border:0px;
+    border:0;
     background:none;
     color:#2ea2cc;
     outline:none;
     display:inline;
     height: 24px;
-    padding-top: 0px;
     cursor:pointer;
     text-decoration:underline;
-    padding:0px 20px 0px 0px;
-    background: url(../images/edit.png) right 8px no-repeat;
+    padding:0 20px 0 0;
 }
 
 .editimageicon:hover {
