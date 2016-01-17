@@ -9,6 +9,7 @@
    License: GPLv3
   */
 
+/// This slider has been built upon Huge It Slider source
 namespace ElegantSlider;
 
 function has_word_wrap() {
