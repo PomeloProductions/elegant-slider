@@ -8,6 +8,7 @@
  */
 namespace ElegantSlider\Model;
 use DateTime;
+use WordWrap\LifeCycle;
 use WordWrap\ORM\BaseModel;
 
 class Slider extends BaseModel{
@@ -98,10 +99,23 @@ class Slider extends BaseModel{
         $this->images = Image::fetchImagesForSlider($this);
     }
 
+    /**
+     * prepares all images for exporting to a page
+     */
     public function prepareExport() {
         foreach ($this->getImages() as $image) {
 
             $image->prepareExport();
+        }
+    }
+
+    /**
+     * prepares this slider to be edited
+     * @param LifeCycle $lifeCycle
+     */
+    public function prepareEdit(LifeCycle $lifeCycle) {
+        foreach ($this->getImages() as $image) {
+            $image->prepareEdit($lifeCycle);
         }
     }
 

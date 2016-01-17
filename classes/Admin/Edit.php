@@ -37,6 +37,8 @@ class Edit extends TaskController {
      */
     protected function renderMainContent() {
 
+        $this->slider->prepareEdit($this->lifeCycle);
+
         $template = new MustacheTemplate($this->lifeCycle, "admin/edit_slider", $this->slider);
 
         return $template->export();

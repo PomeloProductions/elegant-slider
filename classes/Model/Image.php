@@ -9,7 +9,9 @@
 namespace ElegantSlider\Model;
 
 
+use CollapsingContent\Admin\Edit;
 use DateTime;
+use WordWrap\Assets\View\Editor;
 use WordWrap\ORM\BaseModel;
 
 class Image extends BaseModel{
@@ -22,9 +24,17 @@ class Image extends BaseModel{
      */
     public $name;
     /**
+     * The contents of the editor for the name in the admin
+     */
+    public $name_editor;
+    /**
      * @var string the description of the image
      */
     public $description;
+    /**
+     * The contents of the editor for the description in the admin
+     */
+    public $description_editor;
     /**
      * @var int the order of the images
      */
@@ -76,12 +86,24 @@ class Image extends BaseModel{
         return $images;
     }
 
+    /**
+     * gets this ready to display its content
+     */
     public function prepareExport() {
         $this->name = apply_filters("elegant_slider/image_name", $this->name);
         $this->name = addslashes($this->name);
 
         $this->description = apply_filters("elegant_slider/image_description", $this->description);
         $this->description = addslashes($this->description);
+    }
+
+    /**
+     * gets this ready to be edited
+     */
+    public function prepareEdit($lifeCycle) {
+
+        $this->name_editor = (new Editor($lifeCycle, "name", $this->name, "Image Name"))->export();
+        $this->description_editor = (new Editor($lifeCycle, "description", $this->description, "Image Description"))->export();
     }
 
     /**
