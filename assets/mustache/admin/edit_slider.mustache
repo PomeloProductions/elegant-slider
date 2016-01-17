@@ -1,5 +1,7 @@
 <div id="poststuff">
-    <form id="post-body" class="metabox-holder columns-2">
+    <form id="post-body" class="metabox-holder columns-2" method="post">
+
+        <input type="hidden" name="action" value="{{action}}"/>
         <!-- Content -->
         <div id="post-body-content">
 
@@ -85,7 +87,7 @@
                     </ul>
                     <div id="major-publishing-actions">
                         <div id="publishing-action">
-                            <input type="button" onclick="submitbutton('apply')" value="Save Slider" id="save-buttom" class="button button-primary button-large">
+                            <input type="submit" value="Save Slider" id="save-buttom" class="button button-primary button-large">
                         </div>
                         <div class="clear"></div>
                         <!--<input type="button" onclick="window.location.href='admin.php?page=sliders_huge_it_slider'" value="Cancel" class="button-secondary action">-->
