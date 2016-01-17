@@ -48,13 +48,12 @@ class Edit extends TaskController {
         foreach ($this->slider->getImages() as $image) {
             $image->delete();
         }
-
         $descriptions = [];
         $linkTargets = [];
 
         foreach($_POST as $key => $value) {
             if (strstr($key, "description"))
-                $descriptions[] = $value;
+                $descriptions[] = stripslashes($value);
             if (strstr($key, "link_target"))
                 $linkTargets[] = $value;
         }
