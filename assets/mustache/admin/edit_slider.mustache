@@ -17,11 +17,10 @@
                 <ul id="images-list" class="ui-sortable">
                     {{#images}}
                         <li class="ui-sortable-handle">
-                            <input type="hidden" name="order[]" value="{{id}}">
                             <div class="image-container">
                                 <img src="{{image_url}}">
                                 <div>
-                                    <input type="hidden" name="image_url-{{id}}" value="{{image_url}}">
+                                    <input type="hidden" name="image_url[]" value="{{image_url}}">
                                     <span class="wp-media-buttons-icon"></span>
                                     <div class="uploader add-new-image">
                                         <input type="button" class="button1 wp-media-buttons-icon editimageicon" name="_unique_name_button1" value="Edit image">
@@ -31,7 +30,7 @@
                             <div class="image-options">
                                 <div>
                                     <label for="name-{{id}}">Title:</label>
-                                    <input class="text_area" type="text" id="name-{{id}}" name="name-{{id}}" value="{{name}}">
+                                    <input class="text_area" type="text" id="name-{{id}}" name="name[]" value="{{name}}">
                                 </div>
                                 <div>{{{description_editor}}}</div>
                                 <div class="link-block">
@@ -43,7 +42,7 @@
                                     <!--<input type="checkbox" name="pause_on_hover" id="pause_on_hover"  checked="checked"  class="link_target"/>-->
                                 </div>
                                 <div class="remove-image-container">
-                                    <a class="button remove-image" href="admin.php?page=elegant_slider&task=delete_imageid={{id}}">Remove Image</a>
+                                    <a class="button remove-image" href="admin.php?page=elegant_slider&task=delete_image&id={{id}}">Remove Image</a>
                                 </div>
                             </div>
 
