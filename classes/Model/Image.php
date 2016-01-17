@@ -102,8 +102,13 @@ class Image extends BaseModel{
      */
     public function prepareEdit($lifeCycle) {
 
-        $this->name_editor = (new Editor($lifeCycle, "name", $this->name, "Image Name"))->export();
-        $this->description_editor = (new Editor($lifeCycle, "description", $this->description, "Image Description"))->export();
+        $editor = new Editor($lifeCycle, "name-" . $this->id, $this->name, "Image Name");
+        $editor->setHeight(100);
+        $this->name_editor = $editor->export();
+
+        $editor = new Editor($lifeCycle, "description-" . $this->id, $this->description, "Image Description");
+        $editor->setHeight(200);
+        $this->description_editor = $editor->export();
     }
 
     /**
