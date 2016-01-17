@@ -55,8 +55,12 @@
               "actions" : ["create"]
             },
             {
-              "name" : "Delete",
-              "className" : "\\Admin\\Delete"
+              "name" : "Delete Slider",
+              "className" : "\\Admin\\DeleteSlider"
+            },
+            {
+              "name" : "Delete Image",
+              "className" : "\\Admin\\DeleteImage"
             }
           ]
         }
