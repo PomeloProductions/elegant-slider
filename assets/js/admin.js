@@ -12,9 +12,15 @@ var ImageEntry = {
 
     init : function() {
         var $imageList = jQuery("#images-list");
-        var $image = jQuery($imageList.find("li")[0].cloneNode());
+        var $image = jQuery($imageList.find("li")[0].cloneNode(true));
 
         $image.find(".image-container").find("img").attr("src", "");
+        $image.find(".image_url_input").val("");
+        $image.find(".url-input").val("");
+        $image.find(".name_input").val("");
+        $image.find(".link_target").removeAttr("checked");
+
+        ImageEntry.templateContent = $image;
     }
 };
 
