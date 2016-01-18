@@ -54,6 +54,8 @@ class Edit extends TaskController {
             $this->slider->light_box = $_POST["light_box"];
         if (isset($_POST["popup_only"]))
             $this->slider->popup_only = $_POST["popup_only"];
+
+        $this->slider->save();
     }
 
     /**
