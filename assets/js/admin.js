@@ -4,15 +4,19 @@
 
 jQuery(document).ready(function() {
 
+    ImageTemplate.init();
+    WPImageEditor.init();
 });
 
-var ImageEntry = {
+var ImageTemplate = {
 
     templateContent : null,
 
+    $imageList : null,
+
     init : function() {
-        var $imageList = jQuery("#images-list");
-        var $image = jQuery($imageList.find("li")[0].cloneNode(true));
+        ImageTemplate.$imageList = jQuery("#images-list");
+        var $image = jQuery(ImageTemplate.$imageList.find("li")[0].cloneNode(true));
 
         $image.find(".image-container").find("img").attr("src", "");
         $image.find(".image_url_input").val("");
@@ -20,7 +24,58 @@ var ImageEntry = {
         $image.find(".name_input").val("");
         $image.find(".link_target").removeAttr("checked");
 
-        ImageEntry.templateContent = $image;
+        ImageTemplate.templateContent = $image;
+    },
+
+    duplicateImage : function(url) {
+
+        var $newTemplate = ImageTemplate.templateContent.clone();
+
+        $newTemplate.find(".image-container").find("img").attr("src", url);
+        $newTemplate.find(".image_url_input").val(url);
+
+        $newTemplate.find(".add_media").click(WPImageEditor.disableCustomMedia);
+
+        ImageTemplate.$imageList.append($newTemplate);
+    }
+};
+
+var WPImageEditor = {
+
+    newImage : false,
+    origSendAttachment : null,
+
+    init : function() {
+        WPImageEditor.origSendAttachment =  wp.media.editor.send.attachment;
+
+        jQuery(".add-new-image-button").click(WPImageEditor.addNewImage);
+        jQuery('.add_media').click(WPImageEditor.disableCustomMedia);
+    },
+
+    addNewImage : function() {
+
+        WPImageEditor.newImage = true;
+
+        var button = jQuery(this);
+
+        wp.media.editor.send.attachment = WPImageEditor.handleResult;
+
+        wp.media.editor.open(button);
+        return false;
+    },
+
+    disableCustomMedia : function() {
+        WPImageEditor.newImage = false;
+    },
+
+    handleResult : function(props, attachment){
+        if ( WPImageEditor.newImage ) {
+            ImageTemplate.duplicateImage(attachment.url);
+        } else {
+            return WPImageEditor.origSendAttachment.apply( this, [props, attachment] );
+        }
+
+        return true;
     }
 };
 
@@ -70,28 +125,9 @@ jQuery(function() {
 });
 
 jQuery(document).ready(function($){
-    var _custom_media = true,
-        _orig_send_attachment = wp.media.editor.send.attachment;
 
 
     jQuery('.huge-it-newuploader .button').click(function(e) {
-        var send_attachment_bkp = wp.media.editor.send.attachment;
-
-        var button = jQuery(this);
-        var id = button.attr('id').replace('_button', '');
-        _custom_media = true;
-
-        jQuery("#"+id).val('');
-        wp.media.editor.send.attachment = function(props, attachment){
-            if ( _custom_media ) {
-                jQuery("#"+id).val(attachment.url+';;;'+jQuery("#"+id).val());
-                jQuery("#save-buttom").click();
-            } else {
-                return _orig_send_attachment.apply( this, [props, attachment] );
-            };
-        }
-
-        wp.media.editor.open(button);
 
         return false;
     });
