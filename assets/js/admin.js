@@ -1,6 +1,23 @@
 /**
  * Created by bryce on 1/15/16.
  */
+
+jQuery(document).ready(function() {
+
+});
+
+var ImageEntry = {
+
+    templateContent : null,
+
+    init : function() {
+        var $imageList = jQuery("#images-list");
+        var $image = jQuery($imageList.find("li")[0].cloneNode());
+
+        $image.find(".image-container").find("img").attr("src", "");
+    }
+};
+
 jQuery(document).ready(function () {
     jQuery('#arrows-type input[name="params[slider_navigation_type]"]').change(function(){
         jQuery(this).parents('ul').find('li.active').removeClass('active');
