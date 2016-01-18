@@ -159,6 +159,7 @@ jQuery(document).ready(function ($) {
         tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
         return false;
     });
+    //This is causing a console error nt sure why
     window.send_to_editor = function (html) {
         imgurl = jQuery('img', html).attr('src');
         window.parent.uploadID.val(imgurl);
