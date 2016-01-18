@@ -18,13 +18,16 @@ var ImageTemplate = {
 
     init : function() {
         ImageTemplate.$imageList = jQuery("#images-list");
-        var $image = jQuery(ImageTemplate.$imageList.find("li")[0].cloneNode(true));
+         $image = jQuery(ImageTemplate.$imageList.find("li")[0].cloneNode(true));
 
         $image.find(".image-container").find("img").attr("src", "");
-        $image.find(".image_url_input").val("");
-        $image.find(".url-input").val("");
-        $image.find(".name_input").val("");
+
+        $image.find(".image_url_input").attr("value", "");
+        $image.find(".url-input").attr("value", "");
+        $image.find(".name_input").attr("value", "");
         $image.find(".link_target").removeAttr("checked");
+
+        $image.find("textarea").html("");
 
         var html = $image.clone().wrap("<div></div>").parent().html();
         html = html.replace(/description-\d+/g, "description-\{\{id\}\}");
