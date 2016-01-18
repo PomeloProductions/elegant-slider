@@ -51,9 +51,9 @@ class Edit extends TaskController {
         if (isset($_POST["auto_play_pause_speed"]))
             $this->slider->auto_play_pause_speed = $_POST["auto_play_pause_speed"];
         if (isset($_POST["light_box"]))
-            $this->slider->light_box = $_POST["light_box"];
+            $this->slider->light_box = $_POST["light_box"] == "on";
         if (isset($_POST["popup_only"]))
-            $this->slider->popup_only = $_POST["popup_only"];
+            $this->slider->popup_only = $_POST["popup_only"] == "on";
 
         $this->slider->save();
     }
