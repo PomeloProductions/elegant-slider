@@ -25,6 +25,11 @@ var ImageTemplate = {
         $image.find(".link_target").removeAttr("checked");
 
         var html = $image.clone().wrap("<div></div>").parent().html();
+        html = html.replace(/description-\d+/g, "description-\{\{id\}\}");
+        html = html.replace(/image_link-\d+/g, "image_link-\{\{id\}\}");
+        html = html.replace(/link_target-\d+/g, "link_target-\{\{id\}\}");
+        html = html.replace(/name-\d+/g, "name-\{\{id\}\}");
+        html = html.replace(/id=\d+/g, "id=\{\{id\}\}");
 
         ImageTemplate.templateContent = html;
     },
