@@ -31,8 +31,9 @@ class Edit extends TaskController {
         if (isset($_GET["id"]))
             $this->slider = Slider::find_one($_GET["id"]);
 
-        if (isset($action) && $action == "edit") {
+        if (isset($action) && ($action == "edit" || $action == "create")) {
 
+            $this->saveSliderSettings();
             $this->createImages();
         }
 
@@ -41,9 +42,24 @@ class Edit extends TaskController {
     }
 
     /**
+     * sets new settings and saves the slider model
+     */
+    private function saveSliderSettings() {
+
+        if (isset($_POST["auto_play"]))
+            $this->slider->auto_play = $_POST["auto_play"] == "on";
+        if (isset($_POST["auto_play_pause_speed"]))
+            $this->slider->auto_play_pause_speed = $_POST["auto_play_pause_speed"];
+        if (isset($_POST["light_box"]))
+            $this->slider->light_box = $_POST["light_box"];
+        if (isset($_POST["popup_only"]))
+            $this->slider->popup_only = $_POST["popup_only"];
+    }
+
+    /**
      * will delete old images and create new ones
      */
-    protected function createImages() {
+    private function createImages() {
 
         foreach ($this->slider->getImages() as $image) {
             $image->delete();

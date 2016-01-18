@@ -65,6 +65,7 @@
 
                         <li>
                             <label for="auto_play">Autoplay Slider</label>
+                            <input type="hidden" name="auto_play" value="off">
                             <input type="checkbox" name="auto_play" id="auto_play" {{#auto_play}}checked{{/auto_play}}>
                         </li>
                         <li>
@@ -82,7 +83,8 @@
                         </li>
                         <li>
                             <label for="popup_only">Only Use Light Box?</label>
-                            <input type="checkbox" name="popup_only" value="on" id="popup_only" {{#popup_only}}checked{{/popup_only}}>
+                            <input type="hidden" name="popup_only" value="off">
+                            <input type="checkbox" name="popup_only" id="popup_only" {{#popup_only}}checked{{/popup_only}}>
                         </li>
                     </ul>
                     <div id="major-publishing-actions">
