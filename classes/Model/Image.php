@@ -141,7 +141,7 @@ class Image extends BaseModel{
             "order" => "INTEGER(11)",
             "image_url" => "TEXT",
             "image_link" => "VARCHAR(255)",
-            "image_link_new_window" => "INTEGER(11) DEFAULT 0",
+            "image_link_new_window" => "TINYINT(4) DEFAULT 0",
             "deleted_at" => "DATETIME"
         ];
     }
