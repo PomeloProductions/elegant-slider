@@ -14,6 +14,8 @@ var ImageTemplate = {
 
     $imageList : null,
 
+    newImages : 0,
+
     init : function() {
         ImageTemplate.$imageList = jQuery("#images-list");
         var $image = jQuery(ImageTemplate.$imageList.find("li")[0].cloneNode(true));
@@ -38,6 +40,8 @@ var ImageTemplate = {
 
         var newHtml = ImageTemplate.templateContent;
 
+        newHtml = newHtml.replace(/\{\{id}}/g, "new-" + ImageTemplate.newImages);
+
         var $newTemplate = jQuery(newHtml);
 
         $newTemplate.find(".image-container").find("img").attr("src", url);
@@ -46,6 +50,7 @@ var ImageTemplate = {
         $newTemplate.find(".add_media").click(WPImageEditor.disableCustomMedia);
 
         ImageTemplate.$imageList.append($newTemplate);
+        ImageTemplate.newImages++;
     }
 };
 
