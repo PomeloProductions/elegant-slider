@@ -24,12 +24,16 @@ var ImageTemplate = {
         $image.find(".name_input").val("");
         $image.find(".link_target").removeAttr("checked");
 
-        ImageTemplate.templateContent = $image;
+        var html = $image.clone().wrap("<div></div>").parent().html();
+
+        ImageTemplate.templateContent = html;
     },
 
     duplicateImage : function(url) {
 
-        var $newTemplate = ImageTemplate.templateContent.clone();
+        var newHtml = ImageTemplate.templateContent;
+
+        var $newTemplate = jQuery(newHtml);
 
         $newTemplate.find(".image-container").find("img").attr("src", url);
         $newTemplate.find(".image_url_input").val(url);
