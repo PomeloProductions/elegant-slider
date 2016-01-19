@@ -105,6 +105,7 @@ class Image extends BaseModel{
 
         $editor = new Editor($lifeCycle, "description-" . $this->id, $this->description, "Image Description");
         $editor->setHeight(100);
+        $editor->disableMedia();
         $this->description_editor = $editor->export();
     }
 
