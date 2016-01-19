@@ -103,18 +103,22 @@ var ImageTemplate = {
 var WPImageEditor = {
 
     newImage : false,
+    editingImage : false,
     origSendAttachment : null,
+
+    editingId : 0,
 
     init : function() {
         WPImageEditor.origSendAttachment =  wp.media.editor.send.attachment;
 
         jQuery(".add-new-image-button").click(WPImageEditor.addNewImage);
-        jQuery('.add_media').click(WPImageEditor.disableCustomMedia);
+        jQuery(".edit_image").click(WPImageEditor.editImage);
     },
 
     addNewImage : function() {
 
         WPImageEditor.newImage = true;
+        WPImageEditor.editingImage = false;
 
         var button = jQuery(this);
 
@@ -124,16 +128,34 @@ var WPImageEditor = {
         return false;
     },
 
-    disableCustomMedia : function() {
+    editImage : function() {
+
         WPImageEditor.newImage = false;
+        WPImageEditor.editingImage = true;
+
+        WPImageEditor.editingId = jQuery(this).data("id");
+
+        var button = jQuery(this);
+
+        wp.media.editor.send.attachment = WPImageEditor.handleResult;
+
+        wp.media.editor.open(button);
+        return false;
     },
 
     handleResult : function(props, attachment){
-        if ( WPImageEditor.newImage ) {
-            ImageTemplate.duplicateImage(attachment.url);
-        } else {
-            return WPImageEditor.origSendAttachment.apply( this, [props, attachment] );
+        switch (true) {
+            case WPImageEditor.newImage:
+                ImageTemplate.duplicateImage(attachment.url);
+                break;
+            case WPImageEditor.editingImage:
+                jQuery(".preview_image_url-" + WPImageEditor.editingId).attr("src", attachment.url);
+                jQuery(".image_url-" + WPImageEditor.editingId).val(attachment.url);
+                break;
+            default:
+                return WPImageEditor.origSendAttachment.apply( this, [props, attachment] );
         }
+
 
         return true;
     }
