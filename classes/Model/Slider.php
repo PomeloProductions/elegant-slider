@@ -146,6 +146,25 @@ class Slider extends BaseModel{
 
         return $this->images;
     }
+
+    /**
+     * @return Slider[] all active sliders
+     */
+    public static function fetchAllActive() {
+        $SQL = "SELECT * FROM `" . static::get_table() . "` WHERE `deleted_at` IS NULL";
+        global $wpdb;
+
+        $results = $wpdb->get_results($SQL, ARRAY_A);
+
+        $sliders = [];
+
+        foreach ($results as $row) {
+            $sliders[] = new Slider($row);
+        }
+
+        return $sliders;
+    }
+
     /**
      * Get an array of fields to search during a search query.
      *

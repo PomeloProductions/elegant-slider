@@ -27,7 +27,7 @@ class ViewSliders extends TaskController {
      */
     protected function renderMainContent() {
 
-        $sliders = ["sliders" => Slider::all()];
+        $sliders = ["sliders" => Slider::fetchAllActive()];
 
         $template = new MustacheTemplate($this->lifeCycle, "admin/list_sliders", $sliders);
 
