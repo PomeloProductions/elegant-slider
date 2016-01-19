@@ -57,10 +57,6 @@
             {
               "name" : "Delete Slider",
               "className" : "\\Admin\\DeleteSlider"
-            },
-            {
-              "name" : "Delete Image",
-              "className" : "\\Admin\\DeleteImage"
             }
           ]
         }

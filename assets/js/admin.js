@@ -6,6 +6,8 @@ jQuery(document).ready(function() {
 
     ImageTemplate.init();
     WPImageEditor.init();
+
+    ImageRemoval.init();
 });
 
 var ImageTemplate = {
@@ -133,6 +135,21 @@ var WPImageEditor = {
         }
 
         return true;
+    }
+};
+
+var ImageRemoval = {
+
+    init : function() {
+        jQuery(".remove-image").click(ImageRemoval.remove);
+    },
+
+    remove : function(event) {
+        event.preventDefault();
+
+        var $li = jQuery(this).closest("li").hide();
+
+        $li.find("input,textarea").remove();
     }
 };
 
