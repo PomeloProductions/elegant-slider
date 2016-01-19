@@ -38,7 +38,7 @@ class Edit extends TaskController {
         }
 
         if ($this->slider == null)
-            wp_redirect("Location: admin.php?page=elegant_slider&task=view_sliders");
+            wp_redirect("admin.php?page=elegant_slider&task=view_sliders");
     }
 
     /**
