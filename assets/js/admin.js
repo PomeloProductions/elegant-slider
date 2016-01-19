@@ -16,9 +16,17 @@ var ImageTemplate = {
 
     newImages : 0,
 
+    editorSettings : null,
+
     init : function() {
+
+        for (var settingsName in tinyMCEPreInit.mceInit)  {
+            ImageTemplate.editorSettings = tinyMCEPreInit.mceInit[settingsName];
+            break;
+        }
+
         ImageTemplate.$imageList = jQuery("#images-list");
-         $image = jQuery(ImageTemplate.$imageList.find("li")[0].cloneNode(true));
+        var $image = jQuery(ImageTemplate.$imageList.find("li")[0].cloneNode(true));
 
         $image.find(".image-container").find("img").attr("src", "");
 
