@@ -100,6 +100,15 @@ class Slider extends BaseModel{
     }
 
     /**
+     * creates the first instant of an image
+     */
+    public function createPlaceholderImage() {
+        $this->images = [];
+
+        $this->images[] = Image::create([]);
+    }
+
+    /**
      * prepares all images for exporting to a page
      */
     public function prepareExport() {
