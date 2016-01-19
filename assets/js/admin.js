@@ -21,9 +21,13 @@ var ImageTemplate = {
     init : function() {
 
         for (var settingsName in tinyMCEPreInit.mceInit)  {
-            ImageTemplate.editorSettings = tinyMCEPreInit.mceInit[settingsName];
+            ImageTemplate.editorSettings =
+                jQuery.extend(true, {}, tinyMCEPreInit.mceInit[settingsName]);
             break;
         }
+
+        ImageTemplate.editorSettings.body_class =
+            ImageTemplate.editorSettings.body_class.replace(/description-\d+/g, "description-\{\{id\}\}");
 
         ImageTemplate.$imageList = jQuery("#images-list");
         var $image = jQuery(ImageTemplate.$imageList.find("li")[0].cloneNode(true));
@@ -61,6 +65,17 @@ var ImageTemplate = {
         $newTemplate.find(".add_media").click(WPImageEditor.disableCustomMedia);
 
         ImageTemplate.$imageList.append($newTemplate);
+
+        var newSettings =
+            jQuery.extend(true, {}, ImageTemplate.editorSettings);
+
+        newSettings.body_class =
+            newSettings.body_class.replace(/\{\{id}}/g, "new-" + ImageTemplate.newImages);
+        newSettings.selector = "#description-new-" + ImageTemplate.newImages;
+
+        tinyMCEPreInit.mceInit["description-new-" + ImageTemplate.newImages] = newSettings;
+        tinyMCE.init(tinyMCEPreInit.mceInit["description-new-" + ImageTemplate.newImages]);
+
         ImageTemplate.newImages++;
     }
 };
