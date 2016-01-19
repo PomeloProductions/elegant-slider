@@ -24,6 +24,9 @@ class Create extends Edit {
         $this->slider->createPlaceholderImage();
 
         parent::processRequest($action);
+
+        if ($this->slider->id)
+            wp_redirect("admin.php?page=elegant_slider&task=edit_slider&id=" . $this->slider->id);
     }
 
     /**
