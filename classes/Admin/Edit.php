@@ -46,6 +46,8 @@ class Edit extends TaskController {
      */
     private function saveSliderSettings() {
 
+        if (isset($_POST["name"]))
+            $this->slider->name = $_POST["name"];
         if (isset($_POST["auto_play"]))
             $this->slider->auto_play = $_POST["auto_play"] == "on";
         if (isset($_POST["auto_play_pause_speed"]))
