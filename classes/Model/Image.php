@@ -20,9 +20,9 @@ class Image extends BaseModel{
      */
     public $id;
     /**
-     * @var string the name of the image
+     * @var string the title of the image
      */
-    public $name;
+    public $title;
     /**
      * @var string the description of the image
      */
@@ -136,7 +136,7 @@ class Image extends BaseModel{
     public static function get_fields() {
         return [
             "slider_id" => "INTEGER(11) UNSIGNED",
-            "name" => "TEXT",
+            "title" => "TEXT",
             "description" => "TEXT",
             "order" => "INTEGER(11)",
             "image_url" => "TEXT",

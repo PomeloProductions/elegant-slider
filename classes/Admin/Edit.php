@@ -81,7 +81,7 @@ class Edit extends TaskController {
         for ($i = 0; $i < count($descriptions); $i++) {
             $image = Image::create([
                 "slider_id" => $this->slider->id,
-                "name" => $_POST["name"][$i],
+                "title" => $_POST["title"][$i],
                 "description" => $descriptions[$i],
                 "order" => $i + 1,
                 "image_url" => $_POST["image_url"][$i],
