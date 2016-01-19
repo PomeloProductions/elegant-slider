@@ -97,12 +97,17 @@ class Edit extends TaskController {
 
     /**
      * override to render the main page
+     * @param $create bool whether or not we are creating an element
+     * @return string
      */
-    protected function renderMainContent() {
+    protected function renderMainContent($create = false) {
 
         $this->slider->prepareEdit($this->lifeCycle);
 
-        $this->slider->action = "edit";
+        if ($create)
+            $this->slider->action = "create";
+        else
+            $this->slider->action = "edit";
 
         $template = new MustacheTemplate($this->lifeCycle, "admin/edit_slider", $this->slider);
 
