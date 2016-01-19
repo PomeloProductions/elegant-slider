@@ -105,7 +105,7 @@ class Slider extends BaseModel{
     public function createPlaceholderImage() {
         $this->images = [];
 
-        $this->images[] = Image::create([]);
+        $this->images[] = Image::create(["id" => 0]);
     }
 
     /**
