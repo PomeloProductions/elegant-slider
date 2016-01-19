@@ -57,6 +57,7 @@ var ImageTemplate = {
         var html = $image.clone().wrap("<div></div>").parent().html();
         html = html.replace(/description-\d+/g, "description-\{\{id\}\}");
         html = html.replace(/image_link-\d+/g, "image_link-\{\{id\}\}");
+        html = html.replace(/image_url-\d+/g, "image_url-\{\{id\}\}");
         html = html.replace(/link_target-\d+/g, "link_target-\{\{id\}\}");
         html = html.replace(/name-\d+/g, "title-\{\{id\}\}");
         html = html.replace(/id=\d+/g, "id=\{\{id\}\}");
