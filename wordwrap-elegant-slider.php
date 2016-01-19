@@ -2,7 +2,7 @@
 /*
    Plugin Name: Elegant Slider
    Plugin URI: http://wordpress.org/extend/plugins/wordwrap-elegant-slider/
-   Version: 0.1.0
+   Version: 1.0.0
    Author: Axolotl Interactive
    Description: 
    Text Domain: wordwrap-elegant-slider
