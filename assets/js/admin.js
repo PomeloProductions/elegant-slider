@@ -18,6 +18,8 @@ var ImageTemplate = {
 
     editorSettings : null,
 
+    textAreaSettings : null,
+
     init : function() {
 
         for (var settingsName in tinyMCEPreInit.mceInit)  {
@@ -29,8 +31,17 @@ var ImageTemplate = {
         ImageTemplate.editorSettings.body_class =
             ImageTemplate.editorSettings.body_class.replace(/description-\d+/g, "description-\{\{id\}\}");
 
+        for (var settingsName in tinyMCEPreInit.qtInit)  {
+            ImageTemplate.textAreaSettings =
+                jQuery.extend(true, {}, tinyMCEPreInit.qtInit[settingsName]);
+            break;
+        }
+
         ImageTemplate.$imageList = jQuery("#images-list");
         var $image = jQuery(ImageTemplate.$imageList.find("li")[0].cloneNode(true));
+
+        $image.find(".wp-editor-wrap").removeClass("html-active");
+        $image.find(".wp-editor-wrap").addClass("tmce-active");
 
         $image.find(".image-container").find("img").attr("src", "");
 
@@ -66,15 +77,21 @@ var ImageTemplate = {
 
         ImageTemplate.$imageList.append($newTemplate);
 
-        var newSettings =
+        var newEditorSettings =
             jQuery.extend(true, {}, ImageTemplate.editorSettings);
 
-        newSettings.body_class =
-            newSettings.body_class.replace(/\{\{id}}/g, "new-" + ImageTemplate.newImages);
-        newSettings.selector = "#description-new-" + ImageTemplate.newImages;
+        newEditorSettings.body_class =
+            newEditorSettings.body_class.replace(/\{\{id}}/g, "new-" + ImageTemplate.newImages);
+        newEditorSettings.selector = "#description-new-" + ImageTemplate.newImages;
 
-        tinyMCEPreInit.mceInit["description-new-" + ImageTemplate.newImages] = newSettings;
+        tinyMCEPreInit.mceInit["description-new-" + ImageTemplate.newImages] = newEditorSettings;
         tinyMCE.init(tinyMCEPreInit.mceInit["description-new-" + ImageTemplate.newImages]);
+
+        var newTextAreaSettings =
+            jQuery.extend(true, {}, ImageTemplate.textAreaSettings);
+        newTextAreaSettings.id = "description-new-" + ImageTemplate.newImages;
+        tinyMCEPreInit.qtInit["description-new-" + ImageTemplate.newImages] = newTextAreaSettings;
+        quicktags(tinyMCEPreInit.qtInit["description-new-" + ImageTemplate.newImages]);
 
         ImageTemplate.newImages++;
     }
