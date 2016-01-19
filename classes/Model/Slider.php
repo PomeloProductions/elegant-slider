@@ -129,6 +129,15 @@ class Slider extends BaseModel{
     }
 
     /**
+     * sets the deleted at datetime
+     */
+    public function delete() {
+        $this->deleted_at = new DateTime();
+
+        $this->save();
+    }
+
+    /**
      * @return Image[]
      */
     public function getImages(){
