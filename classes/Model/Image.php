@@ -86,7 +86,7 @@ class Image extends BaseModel{
      * gets this ready to display its content
      */
     public function prepareExport() {
-        $this->name = apply_filters("elegant_slider/image_name", $this->name);
+        $this->name = apply_filters("elegant_slider/image_name", $this->title);
         $this->name = addslashes($this->name);
 
         $this->description = apply_filters("elegant_slider/image_description", $this->description);
