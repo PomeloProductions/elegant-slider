@@ -8,6 +8,8 @@ jQuery(document).ready(function() {
     WPImageEditor.init();
 
     ImageRemoval.init();
+
+    EditImage.init();
 });
 
 var ImageTemplate = {
@@ -176,6 +178,39 @@ var ImageRemoval = {
     }
 };
 
+/**
+ * Used to init
+ */
+var EditImage = {
+
+    $popUpLinkTextWrapper : null,
+
+    /**
+     * Runs in order to initialize image editing
+     */
+    init : function() {
+
+        EditImage.$popUpLinkTextWrapper = jQuery("#popup_link_text-wrapper");
+
+        jQuery("#popup_only").change(EditImage.toggleOnlyPopUp);
+    },
+
+    /**
+     * Called when the pop up only checkbox changes, toggles different events
+     */
+    toggleOnlyPopUp : function() {
+        if (this.checked) {
+            EditImage.$popUpLinkTextWrapper.show();
+        }
+        else {
+            EditImage.$popUpLinkTextWrapper.hide();
+        }
+    }
+};
+
+
+
+// Legacy code from previous plugin, most of this can be removed
 jQuery(document).ready(function () {
     jQuery('#arrows-type input[name="params[slider_navigation_type]"]').change(function(){
         jQuery(this).parents('ul').find('li.active').removeClass('active');
