@@ -80,10 +80,6 @@
                             <label for="auto_play_pause_speed">Pause time</label>
                             <input type="text" name="auto_play_pause_speed" id="auto_play_pause_speed" value="{{auto_play_pause_speed}}" class="text_area">
                         </li>
-                        <!--<li>-->
-                            <!--<label for="sl_changespeed">Change speed</label>-->
-                            <!--<input type="text" name="sl_changespeed" id="sl_changespeed" value="800" class="text_area">-->
-                        <!--</li>-->
 
                         <li>
                             <label for="light_box">Use Light Box?</label>
@@ -94,6 +90,10 @@
                             <label for="popup_only">Only Use Light Box?</label>
                             <input type="hidden" name="popup_only" value="off">
                             <input type="checkbox" name="popup_only" id="popup_only" {{#popup_only}}checked{{/popup_only}}>
+                        </li>
+                        <li id="popup_link_text-wrapper" {{^popup_only}}style="display: none;"{{/popup_only}}>
+                            <label for="popup_link_text">Light Box Link Text</label>
+                            <input type="text" name="popup_link_text" id="popup_link_text" value="{{popup_link_text}}">
                         </li>
                     </ul>
                     <div id="major-publishing-actions">
