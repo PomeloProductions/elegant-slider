@@ -47,7 +47,7 @@ class Edit extends TaskController {
     private function saveSliderSettings() {
 
         if (isset($_POST["name"]))
-            $this->slider->name = $_POST["name"];
+            $this->slider->name = stripslashes($_POST["name"]);
         if (isset($_POST["auto_play"]))
             $this->slider->auto_play = $_POST["auto_play"] == "on";
         if (isset($_POST["auto_play_pause_speed"]))
@@ -85,11 +85,11 @@ class Edit extends TaskController {
         for ($i = 0; $i < count($descriptions); $i++) {
             $image = Image::create([
                 "slider_id" => $this->slider->id,
-                "title" => $_POST["title"][$i],
+                "title" => stripslashes($_POST["title"][$i]),
                 "description" => $descriptions[$i],
                 "order" => $i + 1,
                 "image_url" => $_POST["image_url"][$i],
-                "image_link" => $_POST["image_link"][$i],
+                "image_link" => stripslashes($_POST["image_link"][$i]),
                 "image_link_new_window" => $linkTargets[$i] == "on" ? 1 : 0
             ]);
             $image->save();
