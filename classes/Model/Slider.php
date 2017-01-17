@@ -151,7 +151,7 @@ class Slider extends BaseModel{
      * @return Slider[] all active sliders
      */
     public static function fetchAllActive() {
-        $SQL = "SELECT * FROM `" . static::get_table() . "` WHERE `deleted_at` IS NULL";
+        $SQL = "SELECT * FROM `" . static::getFullTableName() . "` WHERE `deleted_at` IS NULL";
         global $wpdb;
 
         $results = $wpdb->get_results($SQL, ARRAY_A);

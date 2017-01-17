@@ -66,7 +66,7 @@ class Image extends BaseModel{
      */
     public static function fetchImagesForSlider($slider){
 
-        $SQL = "SELECT * FROM `" . static::get_table() . "` WHERE `deleted_at` IS NULL AND `slider_id` = " . $slider->id . " ORDER BY `order`";
+        $SQL = "SELECT * FROM `" . static::getFullTableName() . "` WHERE `deleted_at` IS NULL AND `slider_id` = " . $slider->id . " ORDER BY `order`";
         global $wpdb;
 
         $results = $wpdb->get_results($SQL, ARRAY_A);
