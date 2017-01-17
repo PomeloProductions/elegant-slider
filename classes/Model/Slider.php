@@ -75,7 +75,7 @@ class Slider extends BaseModel{
      * @param array $properties
      */
     public function __construct(array $properties = array()) {
-        parent::__construct($properties, ["deleted_at"]);
+        parent::__construct($properties);
 
         $this->loadImages();
 
