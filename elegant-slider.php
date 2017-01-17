@@ -3,9 +3,9 @@
    Plugin Name: Elegant Slider
    Plugin URI: http://wordpress.org/extend/plugins/wordwrap-elegant-slider/
    Version: 1.0.2
-   Author: Axolotl Interactive
-   Description: 
-   Text Domain: wordwrap-elegant-slider
+   Author: Pomelo Productions
+   Description:  Easy to use Slider plugin
+   Text Domain: elegant-slider
    License: GPLv3
   */
 
