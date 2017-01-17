@@ -16,9 +16,10 @@ use WordWrap\Assets\StyleSheet\CSS;
 use WordWrap\Assets\Template\Mustache\MustacheTemplate;
 use WordWrap\Assets\View\View;
 use WordWrap\Assets\View\ViewCollection;
+use WordWrap\ShortCodeLoader;
 use WordWrap\ShortCodeScriptLoader;
 
-class ShortCode extends ShortCodeScriptLoader{
+class ShortCode extends ShortCodeLoader{
 
 
     private static $echoedMagnificAssets = false;
@@ -26,7 +27,7 @@ class ShortCode extends ShortCodeScriptLoader{
      * @param  $atts shortcode inputs
      * @return string shortcode content
      */
-    public function handleShortcode($atts) {
+    public function onShortcode($atts) {
         $exportedContent = '';
 
         $slider = Slider::find_one($atts['id']);
