@@ -1,5 +1,5 @@
 {
-  "pluginName" : "wordwrap-elegant-slider",
+  "pluginName" : "elegant-slider",
   "rootNameSpace" : "ElegantSlider",
   "LifeCycle" : {
     "AssetLocation" : [
@@ -28,10 +28,10 @@
     ],
     "Model" : [
       {
-        "className": "Model/Image"
+        "className": "Model\\Image"
       },
       {
-        "className": "Model/Slider"
+        "className": "Model\\Slider"
       }
     ],
     "Admin" : {

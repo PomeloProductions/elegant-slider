@@ -1,7 +1,7 @@
 <?php
 /*
    Plugin Name: Elegant Slider
-   Plugin URI: http://wordpress.org/extend/plugins/wordwrap-elegant-slider/
+   Plugin URI: https://github.com/pomeloproductions/elegant-slider
    Version: 1.0.2
    Author: Pomelo Productions
    Description:  Easy to use Slider plugin
