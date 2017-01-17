@@ -89,7 +89,7 @@ class Slider extends BaseModel{
      * @return string
      */
     public static function getTableName(){
-        return "wp_elegant_slider_slider";
+        return "elegant_slider_slider";
     }
 
     /**

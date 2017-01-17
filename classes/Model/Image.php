@@ -116,7 +116,7 @@ class Image extends BaseModel{
      * @return string
      */
     public static function getTableName() {
-        return "wp_elegant_slider_image";
+        return "elegant_slider_image";
     }
 
     /**
