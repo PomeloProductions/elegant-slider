@@ -7,6 +7,7 @@
  * Time: 3:05 PM
  */
 namespace ElegantSlider\Model;
+
 use DateTime;
 use WordWrap\LifeCycle;
 use WordWrap\ORM\BaseModel;
@@ -191,8 +192,7 @@ class Slider extends BaseModel{
             "start_slide" => "INTEGER(11) DEFAULT '0'",
             "auto_play_pause_speed" => "INTEGER(11) DEFAULT '4000'",
             "popup_only" => "INTEGER(11) DEFAULT '0'",
-            "popup_link_text" => "TEXT",
-            "deleted_at" => "DATETIME"
+            "popup_link_text" => "TEXT"
         ];
     }
 }
