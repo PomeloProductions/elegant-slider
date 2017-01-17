@@ -2,7 +2,6 @@
   "pluginName" : "wordwrap-elegant-slider",
   "rootNameSpace" : "ElegantSlider",
   "LifeCycle" : {
-    "className" : "Plugin",
     "AssetLocation" : [
       {
         "type" : "css",
@@ -19,6 +18,20 @@
       {
         "type" : "mustache",
         "location" : "assets/mustache"
+      }
+    ],
+    "ShortCode": [
+      {
+        "name": "elegant_slider",
+        "className": "ShortCode"
+      }
+    ],
+    "Model" : [
+      {
+        "className": "Model/Image"
+      },
+      {
+        "className": "Model/Slider"
       }
     ],
     "Admin" : {
