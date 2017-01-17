@@ -115,7 +115,7 @@ class Image extends BaseModel{
      *
      * @return string
      */
-    public static function get_table() {
+    public static function getTableName() {
         return "wp_elegant_slider_image";
     }
 
@@ -124,7 +124,7 @@ class Image extends BaseModel{
      *
      * @return array
      */
-    public static function get_searchable_fields() {
+    public static function getSearchableFields() {
         // TODO: Implement get_searchable_fields() method.
     }
 
@@ -134,7 +134,7 @@ class Image extends BaseModel{
      *
      * @return array
      */
-    public static function get_fields() {
+    public static function getFields() {
         return [
             "slider_id" => "INTEGER(11) UNSIGNED",
             "title" => "TEXT",

@@ -88,7 +88,7 @@ class Slider extends BaseModel{
      *
      * @return string
      */
-    public static function get_table(){
+    public static function getTableName(){
         return "wp_elegant_slider_slider";
     }
 
@@ -170,7 +170,7 @@ class Slider extends BaseModel{
      *
      * @return array
      */
-    public static function get_searchable_fields(){
+    public static function getSearchableFields(){
         // TODO: Implement get_searchable_fields() method.
     }
 
@@ -180,7 +180,7 @@ class Slider extends BaseModel{
      *
      * @return array
      */
-    public static function get_fields(){
+    public static function getFields(){
         return [
             "name" => "TEXT",
             "description" => "TEXT",
