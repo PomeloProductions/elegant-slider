@@ -2,7 +2,7 @@
 /*
    Plugin Name: Elegant Slider
    Plugin URI: https://github.com/pomeloproductions/elegant-slider
-   Version: 1.0.2
+   Version: 2.0.0
    Author: Pomelo Productions
    Description:  Easy to use Slider plugin
    Text Domain: elegant-slider
