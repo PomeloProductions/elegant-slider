@@ -1,6 +1,8 @@
 {
   "pluginName" : "elegant-slider",
   "rootNameSpace" : "ElegantSlider",
+  "displayName" : "Elegant Slider",
+  "minPHPVersion" : "7.0.0",
   "LifeCycle" : {
     "AssetLocation" : [
       {
