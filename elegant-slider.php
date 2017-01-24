@@ -16,7 +16,7 @@ use WordWrap;
 
 function hasWordWrap() {
     if ( is_admin() && current_user_can( 'activate_plugins' ) &&  !is_plugin_active( 'word-wrap/word-wrap.php' ) ) {
-        add_action( 'admin_notices', 'child_plugin_notice' );
+        add_action( 'admin_notices', '\ElegantSlider\showInstallErrorMessage' );
 
         deactivate_plugins( plugin_basename( __FILE__ ) );
 
