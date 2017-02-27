@@ -54,10 +54,6 @@ class Image extends BaseModel{
      * @var Slider the slider that this image belongs to
      */
     public $slider;
-    /**
-     * @var DateTime the date that the image was deleted
-     */
-    public $deleted_at;
 
     /**
      * @param $slider
@@ -90,11 +86,6 @@ class Image extends BaseModel{
 
         $this->description = apply_filters("elegant_slider/image_description", $this->description);
         $this->description = addslashes($this->description);
-    }
-
-    public function delete() {
-        $this->deleted_at = new DateTime();
-        $this->save();
     }
 
     /**

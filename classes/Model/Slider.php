@@ -65,10 +65,6 @@ class Slider extends BaseModel{
      * @var int the total amount of images in the slider
      */
     public $count = 0;
-    /**
-     * @var DateTime the date that this slider was deleted
-     */
-    public $deleted_at;
 
     /**
      * Constructor.
@@ -129,14 +125,6 @@ class Slider extends BaseModel{
         }
     }
 
-    /**
-     * sets the deleted at datetime
-     */
-    public function delete() {
-        $this->deleted_at = new DateTime();
-
-        $this->save();
-    }
 
     /**
      * @return Image[]
